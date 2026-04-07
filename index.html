@@ -47,21 +47,50 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#features">Approach</a></li>
-          <li><a href="#pricing">Engagements</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#hero" class="active" data-i18n="nav.home">Home</a></li>
+          <li><a href="#about" data-i18n="nav.about">About</a></li>
+          <li><a href="#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="#features" data-i18n="nav.approach">Approach</a></li>
+          <li><a href="#pricing" data-i18n="nav.engagements">Engagements</a></li>
+          <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="#contact">Schedule a Consultation</a>
+      <div class="lang-switcher d-flex align-items-center gap-1 ms-3">
+        <button class="lang-btn active" data-lang="en" onclick="i18n.set('en')">EN</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="fr" onclick="i18n.set('fr')">FR</button>
+      </div>
+
+      <a class="btn-getstarted" href="#contact" data-i18n="nav.cta">Schedule a Consultation</a>
 
     </div>
   </header>
+
+  <style>
+    .lang-switcher { margin-right: 8px; }
+    .lang-btn {
+      background: none;
+      border: 1px solid transparent;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #6c757d;
+      cursor: pointer;
+      padding: 3px 8px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover { color: var(--accent-color, #0d6efd); }
+    .lang-btn.active {
+      color: var(--accent-color, #0d6efd);
+      border-color: var(--accent-color, #0d6efd);
+      background: rgba(13,110,253,0.06);
+    }
+    .lang-sep { color: #dee2e6; font-size: 0.85rem; line-height: 1; }
+  </style>
 
   <main class="main">
 
@@ -75,25 +104,25 @@
             <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
               <div class="company-badge mb-4">
                 <i class="bi bi-shield-check me-2"></i>
-                20+ Years of Enterprise IT Leadership
+                <span data-i18n="hero.badge">20+ Years of Enterprise IT Leadership</span>
               </div>
 
-              <h1 class="mb-4">
+              <h1 class="mb-4" data-i18n-html="hero.h1">
                 Transform Your IT. <br>
                 Strengthen Security. <br>
                 <span class="accent-text">Scale With Confidence.</span>
               </h1>
 
-              <p class="mb-4 mb-md-5">
+              <p class="mb-4 mb-md-5" data-i18n="hero.p">
                 Senior IT consulting for enterprises, financial institutions, and government organizations.
                 From cloud transformation to ISO 27001 compliance — we deliver outcomes, not deliverables.
               </p>
 
               <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary me-0 me-sm-2 mx-1">Schedule a Consultation</a>
+                <a href="#contact" class="btn btn-primary me-0 me-sm-2 mx-1" data-i18n="hero.cta1">Schedule a Consultation</a>
                 <a href="#services" class="btn btn-link mt-2 mt-sm-0">
                   <i class="bi bi-arrow-right-circle me-1"></i>
-                  Explore Our Services
+                  <span data-i18n="hero.cta2">Explore Our Services</span>
                 </a>
               </div>
             </div>
@@ -112,7 +141,7 @@
                   <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=60&h=60&q=80" alt="Enterprise Client" class="avatar">
                   <span class="avatar more">12+</span>
                 </div>
-                <p class="mb-0 mt-2">Trusted by enterprises, financial institutions &amp; government</p>
+                <p class="mb-0 mt-2" data-i18n-html="hero.social">Trusted by enterprises, financial institutions &amp; government</p>
               </div>
             </div>
           </div>
@@ -125,8 +154,8 @@
                 <i class="bi bi-calendar-check"></i>
               </div>
               <div class="stat-content">
-                <h4>20+ Years</h4>
-                <p class="mb-0">Enterprise IT Experience</p>
+                <h4 data-i18n-html="hero.stat1.h4">20+ Years</h4>
+                <p class="mb-0" data-i18n="hero.stat1.p">Enterprise IT Experience</p>
               </div>
             </div>
           </div>
@@ -136,8 +165,8 @@
                 <i class="bi bi-briefcase"></i>
               </div>
               <div class="stat-content">
-                <h4>50+ Enterprises</h4>
-                <p class="mb-0">Programs Delivered</p>
+                <h4 data-i18n="hero.stat2.h4">50+ Enterprises</h4>
+                <p class="mb-0" data-i18n="hero.stat2.p">Programs Delivered</p>
               </div>
             </div>
           </div>
@@ -147,8 +176,8 @@
                 <i class="bi bi-graph-up-arrow"></i>
               </div>
               <div class="stat-content">
-                <h4>$500M+</h4>
-                <p class="mb-0">in Programs Led</p>
+                <h4 data-i18n="hero.stat3.h4">$500M+</h4>
+                <p class="mb-0" data-i18n="hero.stat3.p">in Programs Led</p>
               </div>
             </div>
           </div>
@@ -158,8 +187,8 @@
                 <i class="bi bi-shield-fill-check"></i>
               </div>
               <div class="stat-content">
-                <h4>ISO 27001 & SOC2</h4>
-                <p class="mb-0">Certifications Delivered</p>
+                <h4 data-i18n-html="hero.stat4.h4">ISO 27001 &amp; SOC2</h4>
+                <p class="mb-0" data-i18n="hero.stat4.p">Certifications Delivered</p>
               </div>
             </div>
           </div>
@@ -177,23 +206,23 @@
         <div class="row gy-4 align-items-center justify-content-between">
 
           <div class="col-xl-5" data-aos="fade-up" data-aos-delay="200">
-            <span class="about-meta">WHAT SETS US APART</span>
-            <h2 class="about-title">Big 4 Caliber. Zero Overhead.</h2>
-            <p class="about-description">We bring enterprise-grade IT leadership to organizations that need real outcomes. Our principal consultant has led transformation programs at Microsoft, IBM, Air Canada, Accenture, and Kyndryl — delivering ISO 27001 certifications, multi-cloud migrations, and secure enterprise platforms that run at scale.</p>
+            <span class="about-meta" data-i18n="about.meta">WHAT SETS US APART</span>
+            <h2 class="about-title" data-i18n="about.h2">Big 4 Caliber. Zero Overhead.</h2>
+            <p class="about-description" data-i18n="about.p">We bring enterprise-grade IT leadership to organizations that need real outcomes. Our principal consultant has led transformation programs at Microsoft, IBM, Air Canada, Accenture, and Kyndryl — delivering ISO 27001 certifications, multi-cloud migrations, and secure enterprise platforms that run at scale.</p>
 
             <div class="row feature-list-wrapper">
               <div class="col-md-6">
                 <ul class="feature-list">
-                  <li><i class="bi bi-check-circle-fill"></i> ISO 27001 &amp; SOC2 Delivery</li>
-                  <li><i class="bi bi-check-circle-fill"></i> Cloud &amp; Datacenter Transformation</li>
-                  <li><i class="bi bi-check-circle-fill"></i> DevSecOps &amp; Agile Enablement</li>
+                  <li><i class="bi bi-check-circle-fill"></i> <span data-i18n-html="about.f1">ISO 27001 &amp; SOC2 Delivery</span></li>
+                  <li><i class="bi bi-check-circle-fill"></i> <span data-i18n-html="about.f2">Cloud &amp; Datacenter Transformation</span></li>
+                  <li><i class="bi bi-check-circle-fill"></i> <span data-i18n-html="about.f3">DevSecOps &amp; Agile Enablement</span></li>
                 </ul>
               </div>
               <div class="col-md-6">
                 <ul class="feature-list">
-                  <li><i class="bi bi-check-circle-fill"></i> Executive Advisory &amp; Governance</li>
-                  <li><i class="bi bi-check-circle-fill"></i> Enterprise Architecture &amp; ERP</li>
-                  <li><i class="bi bi-check-circle-fill"></i> NIST, SOX &amp; Regulatory Compliance</li>
+                  <li><i class="bi bi-check-circle-fill"></i> <span data-i18n-html="about.f4">Executive Advisory &amp; Governance</span></li>
+                  <li><i class="bi bi-check-circle-fill"></i> <span data-i18n-html="about.f5">Enterprise Architecture &amp; ERP</span></li>
+                  <li><i class="bi bi-check-circle-fill"></i> <span data-i18n-html="about.f6">NIST, SOX &amp; Regulatory Compliance</span></li>
                 </ul>
               </div>
             </div>
@@ -205,7 +234,7 @@
                     <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=80&h=80&q=80" alt="Principal Consultant" class="profile-image">
                     <div>
                       <h4 class="profile-name">Uably Consulting</h4>
-                      <p class="profile-position">Principal Consultant &amp; Founder</p>
+                      <p class="profile-position" data-i18n-html="about.profile.pos">Principal Consultant &amp; Founder</p>
                     </div>
                   </div>
                 </div>
@@ -213,7 +242,7 @@
                   <div class="contact-info d-flex align-items-center gap-2">
                     <i class="bi bi-telephone-fill"></i>
                     <div>
-                      <p class="contact-label">Book a discovery call</p>
+                      <p class="contact-label" data-i18n="about.cta.label">Book a discovery call</p>
                       <p class="contact-number">contact@uably.com</p>
                     </div>
                   </div>
@@ -229,8 +258,8 @@
                 <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&w=600&q=80" alt="Senior IT Consultant" class="img-fluid small-image rounded-4">
               </div>
               <div class="experience-badge floating">
-                <h3>20+ <span>Years</span></h3>
-                <p>Enterprise IT delivery at scale</p>
+                <h3>20+ <span data-i18n="about.badge.span">Years</span></h3>
+                <p data-i18n="about.badge.p">Enterprise IT delivery at scale</p>
               </div>
             </div>
           </div>
@@ -245,8 +274,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Our Expertise</h2>
-        <p>Deep, proven capability across the domains that matter most to enterprise IT leaders</p>
+        <h2 data-i18n="exp.title">Our Expertise</h2>
+        <p data-i18n="exp.subtitle">Deep, proven capability across the domains that matter most to enterprise IT leaders</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -257,19 +286,19 @@
 
             <li class="nav-item">
               <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
-                <h4>Cloud Transformation</h4>
+                <h4 data-i18n="exp.tab1">Cloud Transformation</h4>
               </a>
             </li><!-- End tab nav item -->
 
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2">
-                <h4>Cybersecurity &amp; Compliance</h4>
+                <h4 data-i18n-html="exp.tab2">Cybersecurity &amp; Compliance</h4>
               </a><!-- End tab nav item -->
 
             </li>
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
-                <h4>DevSecOps &amp; Agile</h4>
+                <h4 data-i18n-html="exp.tab3">DevSecOps &amp; Agile</h4>
               </a>
             </li><!-- End tab nav item -->
 
@@ -282,15 +311,15 @@
           <div class="tab-pane fade active show" id="features-tab-1">
             <div class="row">
               <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-                <h3>Cloud & Datacenter Transformation</h3>
-                <p class="fst-italic">
+                <h3 data-i18n-html="exp.t1.h3">Cloud &amp; Datacenter Transformation</h3>
+                <p class="fst-italic" data-i18n="exp.t1.p">
                   We design and execute cloud strategies that reduce infrastructure cost, eliminate complexity,
                   and unlock the scalability your business demands — from AWS migrations to hybrid-cloud architecture.
                 </p>
                 <ul>
-                  <li><i class="bi bi-check2-all"></i> <span>AWS architecture design and migration execution, including lift-and-shift and cloud-native replatforming.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Hybrid cloud and datacenter consolidation — reducing operational overhead without disrupting services.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Cloud governance, cost optimization, and Well-Architected Framework reviews to protect your investment long-term.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span data-i18n="exp.t1.li1">AWS architecture design and migration execution, including lift-and-shift and cloud-native replatforming.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span data-i18n="exp.t1.li2">Hybrid cloud and datacenter consolidation — reducing operational overhead without disrupting services.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span data-i18n="exp.t1.li3">Cloud governance, cost optimization, and Well-Architected Framework reviews to protect your investment long-term.</span></li>
                 </ul>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
@@ -302,16 +331,16 @@
           <div class="tab-pane fade" id="features-tab-2">
             <div class="row">
               <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-                <h3>Cybersecurity & Compliance</h3>
-                <p class="fst-italic">
+                <h3 data-i18n-html="exp.t2.h3">Cybersecurity &amp; Compliance</h3>
+                <p class="fst-italic" data-i18n="exp.t2.p">
                   We guide organizations from security gap analysis through to full certification —
                   implementing controls that satisfy regulators, protect operations, and build board-level confidence.
                 </p>
                 <ul>
-                  <li><i class="bi bi-check2-all"></i> <span>ISO 27001 and SOC2 certification delivery — from scoping and gap analysis to audit readiness.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>NIST Cybersecurity Framework and SOX IT general controls implementation for regulated industries.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Security architecture reviews, risk assessments, and remediation roadmaps aligned to your business context.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Fractional CISO services for organizations that need senior security leadership without a full-time hire.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span data-i18n="exp.t2.li1">ISO 27001 and SOC2 certification delivery — from scoping and gap analysis to audit readiness.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span data-i18n="exp.t2.li2">NIST Cybersecurity Framework and SOX IT general controls implementation for regulated industries.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span data-i18n="exp.t2.li3">Security architecture reviews, risk assessments, and remediation roadmaps aligned to your business context.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span data-i18n="exp.t2.li4">Fractional CISO services for organizations that need senior security leadership without a full-time hire.</span></li>
                 </ul>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
@@ -323,13 +352,13 @@
           <div class="tab-pane fade" id="features-tab-3">
             <div class="row">
               <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-                <h3>DevSecOps & Agile Transformation</h3>
+                <h3 data-i18n-html="exp.t3.h3">DevSecOps &amp; Agile Transformation</h3>
                 <ul>
-                  <li><i class="bi bi-check2-all"></i> <span>Secure CI/CD pipeline design — embedding security checks at every stage of the software delivery lifecycle.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Agile and DevOps coaching for engineering teams, including toolchain selection and process design.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Shift-left security practices that reduce vulnerabilities and accelerate release cycles without added risk.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span data-i18n="exp.t3.li1">Secure CI/CD pipeline design — embedding security checks at every stage of the software delivery lifecycle.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span data-i18n="exp.t3.li2">Agile and DevOps coaching for engineering teams, including toolchain selection and process design.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span data-i18n="exp.t3.li3">Shift-left security practices that reduce vulnerabilities and accelerate release cycles without added risk.</span></li>
                 </ul>
-                <p class="fst-italic">
+                <p class="fst-italic" data-i18n="exp.t3.p">
                   Organizations that embed security into development — rather than adding it after — ship faster,
                   fail less, and satisfy auditors more easily. We make that transition practical and permanent.
                 </p>
@@ -356,32 +385,32 @@
           <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
             <div class="feature-box orange">
               <i class="bi bi-building"></i>
-              <h4>Proven at Enterprise Scale</h4>
-              <p>Programs delivered at Microsoft, IBM, Air Canada, Accenture, and Kyndryl — at the scale that matters to you.</p>
+              <h4 data-i18n="why.c1.h4">Proven at Enterprise Scale</h4>
+              <p data-i18n="why.c1.p">Programs delivered at Microsoft, IBM, Air Canada, Accenture, and Kyndryl — at the scale that matters to you.</p>
             </div>
           </div><!-- End Feature Box-->
 
           <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
             <div class="feature-box blue">
               <i class="bi bi-shield-lock"></i>
-              <h4>Security Built In, Not Bolted On</h4>
-              <p>Every engagement embeds compliance from day one — not as an afterthought, but as a foundation.</p>
+              <h4 data-i18n="why.c2.h4">Security Built In, Not Bolted On</h4>
+              <p data-i18n="why.c2.p">Every engagement embeds compliance from day one — not as an afterthought, but as a foundation.</p>
             </div>
           </div><!-- End Feature Box-->
 
           <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
             <div class="feature-box green">
               <i class="bi bi-arrow-repeat"></i>
-              <h4>Strategy Through Execution</h4>
-              <p>We don't hand off slide decks. We stay through delivery and measure success by outcomes, not hours.</p>
+              <h4 data-i18n="why.c3.h4">Strategy Through Execution</h4>
+              <p data-i18n="why.c3.p">We don't hand off slide decks. We stay through delivery and measure success by outcomes, not hours.</p>
             </div>
           </div><!-- End Feature Box-->
 
           <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
             <div class="feature-box red">
               <i class="bi bi-person-check"></i>
-              <h4>Direct Principal Access</h4>
-              <p>You work with the senior consultant — not a rotating junior team. No account managers between you and expertise.</p>
+              <h4 data-i18n="why.c4.h4">Direct Principal Access</h4>
+              <p data-i18n="why.c4.p">You work with the senior consultant — not a rotating junior team. No account managers between you and expertise.</p>
             </div>
           </div><!-- End Feature Box-->
 
@@ -403,8 +432,8 @@
             <div class="feature-item text-end mb-5" data-aos="fade-right" data-aos-delay="200">
               <div class="d-flex align-items-center justify-content-end gap-4">
                 <div class="feature-content">
-                  <h3>Business-First Discovery</h3>
-                  <p>We start with your goals, constraints, and risk tolerance — not a standard methodology. Every engagement is scoped around your business context.</p>
+                  <h3 data-i18n="del.l1.h3">Business-First Discovery</h3>
+                  <p data-i18n="del.l1.p">We start with your goals, constraints, and risk tolerance — not a standard methodology. Every engagement is scoped around your business context.</p>
                 </div>
                 <div class="feature-icon flex-shrink-0">
                   <i class="bi bi-search"></i>
@@ -415,8 +444,8 @@
             <div class="feature-item text-end mb-5" data-aos="fade-right" data-aos-delay="300">
               <div class="d-flex align-items-center justify-content-end gap-4">
                 <div class="feature-content">
-                  <h3>Risk & Compliance by Design</h3>
-                  <p>Regulatory requirements are embedded from architecture to deployment — not added at the end when they're expensive to fix.</p>
+                  <h3 data-i18n-html="del.l2.h3">Risk &amp; Compliance by Design</h3>
+                  <p data-i18n="del.l2.p">Regulatory requirements are embedded from architecture to deployment — not added at the end when they're expensive to fix.</p>
                 </div>
                 <div class="feature-icon flex-shrink-0">
                   <i class="bi bi-shield-check"></i>
@@ -427,8 +456,8 @@
             <div class="feature-item text-end" data-aos="fade-right" data-aos-delay="400">
               <div class="d-flex align-items-center justify-content-end gap-4">
                 <div class="feature-content">
-                  <h3>Executive Alignment</h3>
-                  <p>Regular C-suite briefings, steering committee support, and board-ready reporting — so leadership always knows where programs stand.</p>
+                  <h3 data-i18n="del.l3.h3">Executive Alignment</h3>
+                  <p data-i18n="del.l3.p">Regular C-suite briefings, steering committee support, and board-ready reporting — so leadership always knows where programs stand.</p>
                 </div>
                 <div class="feature-icon flex-shrink-0">
                   <i class="bi bi-people"></i>
@@ -452,8 +481,8 @@
                   <i class="bi bi-cloud-arrow-up"></i>
                 </div>
                 <div class="feature-content">
-                  <h3>Cloud Architecture & Migration</h3>
-                  <p>AWS, hybrid cloud, and datacenter expertise delivered across financial services, aviation, and public sector organizations.</p>
+                  <h3 data-i18n-html="del.r1.h3">Cloud Architecture &amp; Migration</h3>
+                  <p data-i18n="del.r1.p">AWS, hybrid cloud, and datacenter expertise delivered across financial services, aviation, and public sector organizations.</p>
                 </div>
               </div>
             </div><!-- End .feature-item -->
@@ -464,8 +493,8 @@
                   <i class="bi bi-kanban"></i>
                 </div>
                 <div class="feature-content">
-                  <h3>Agile, Iterative Delivery</h3>
-                  <p>Transparent sprints, measurable milestones, and predictable releases — no surprises, no scope creep left unaddressed.</p>
+                  <h3 data-i18n="del.r2.h3">Agile, Iterative Delivery</h3>
+                  <p data-i18n="del.r2.p">Transparent sprints, measurable milestones, and predictable releases — no surprises, no scope creep left unaddressed.</p>
                 </div>
               </div>
             </div><!-- End .feature-item -->
@@ -476,8 +505,8 @@
                   <i class="bi bi-mortarboard"></i>
                 </div>
                 <div class="feature-content">
-                  <h3>Capability Transfer</h3>
-                  <p>We build your team's capacity and internal know-how — so when we leave, the capability stays. No dependency on us.</p>
+                  <h3 data-i18n="del.r3.h3">Capability Transfer</h3>
+                  <p data-i18n="del.r3.p">We build your team's capacity and internal know-how — so when we leave, the capability stays. No dependency on us.</p>
                 </div>
               </div>
             </div><!-- End .feature-item -->
@@ -496,9 +525,9 @@
 
         <div class="row content justify-content-center align-items-center position-relative">
           <div class="col-lg-8 mx-auto text-center">
-            <h2 class="display-4 mb-4">Ready to Modernize Your IT Infrastructure?</h2>
-            <p class="mb-4">Let's discuss your challenges and define a path to secure, scalable, and compliant operations. No obligation — just a focused conversation with a senior consultant.</p>
-            <a href="#contact" class="btn btn-cta">Book a Discovery Call</a>
+            <h2 class="display-4 mb-4" data-i18n="cta1.h2">Ready to Modernize Your IT Infrastructure?</h2>
+            <p class="mb-4" data-i18n="cta1.p">Let's discuss your challenges and define a path to secure, scalable, and compliant operations. No obligation — just a focused conversation with a senior consultant.</p>
+            <a href="#contact" class="btn btn-cta" data-i18n="cta1.btn">Book a Discovery Call</a>
           </div>
 
           <!-- Abstract Background Elements -->
@@ -605,8 +634,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>What Clients Say</h2>
-        <p>Outcomes that speak for themselves — from the leaders who experienced them</p>
+        <h2 data-i18n="test.title">What Clients Say</h2>
+        <p data-i18n="test.subtitle">Outcomes that speak for themselves — from the leaders who experienced them</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -617,13 +646,13 @@
             <div class="testimonial-item">
               <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&h=150&q=80" class="testimonial-img" style="display:none;" alt="David Chen">
               <h3>David Chen</h3>
-              <h4>CTO, Financial Services Enterprise</h4>
+              <h4 data-i18n="test.1.role">CTO, Financial Services Enterprise</h4>
               <div class="stars">
                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
               </div>
               <p>
                 <i class="bi bi-quote quote-icon-left"></i>
-                <span>Uably brought the kind of structured, executive-level leadership that's hard to find outside the Big 4 — but without the overhead. They delivered our ISO 27001 certification on schedule and left our team significantly stronger.</span>
+                <span data-i18n="test.1.quote">Uably brought the kind of structured, executive-level leadership that's hard to find outside the Big 4 — but without the overhead. They delivered our ISO 27001 certification on schedule and left our team significantly stronger.</span>
                 <i class="bi bi-quote quote-icon-right"></i>
               </p>
             </div>
@@ -633,13 +662,13 @@
             <div class="testimonial-item">
               <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&h=150&q=80" class="testimonial-img" style="display:none;" alt="Marie Tremblay">
               <h3>Marie Tremblay</h3>
-              <h4>VP Information Technology, Crown Corporation</h4>
+              <h4 data-i18n="test.2.role">VP Information Technology, Crown Corporation</h4>
               <div class="stars">
                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
               </div>
               <p>
                 <i class="bi bi-quote quote-icon-left"></i>
-                <span>Our cloud migration was stalled for months before Uably stepped in. Within 90 days they had a clear architecture, a delivery plan, and the team aligned. The program closed on time and under budget.</span>
+                <span data-i18n="test.2.quote">Our cloud migration was stalled for months before Uably stepped in. Within 90 days they had a clear architecture, a delivery plan, and the team aligned. The program closed on time and under budget.</span>
                 <i class="bi bi-quote quote-icon-right"></i>
               </p>
             </div>
@@ -649,13 +678,13 @@
             <div class="testimonial-item">
               <img src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?auto=format&fit=crop&w=150&h=150&q=80" class="testimonial-img" style="display:none;" alt="James Okafor">
               <h3>James Okafor</h3>
-              <h4>CISO, SaaS Scale-up</h4>
+              <h4 data-i18n="test.3.role">CISO, SaaS Scale-up</h4>
               <div class="stars">
                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
               </div>
               <p>
                 <i class="bi bi-quote quote-icon-left"></i>
-                <span>The fractional CISO engagement gave us exactly what we needed — senior security oversight, a credible compliance roadmap, and hands-on support for our SOC2 audit. Our investors and enterprise clients noticed immediately.</span>
+                <span data-i18n="test.3.quote">The fractional CISO engagement gave us exactly what we needed — senior security oversight, a credible compliance roadmap, and hands-on support for our SOC2 audit. Our investors and enterprise clients noticed immediately.</span>
                 <i class="bi bi-quote quote-icon-right"></i>
               </p>
             </div>
@@ -665,13 +694,13 @@
             <div class="testimonial-item">
               <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80" class="testimonial-img" style="display:none;" alt="Rachel Nguyen">
               <h3>Rachel Nguyen</h3>
-              <h4>Director of IT, Government Agency</h4>
+              <h4 data-i18n="test.4.role">Director of IT, Government Agency</h4>
               <div class="stars">
                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
               </div>
               <p>
                 <i class="bi bi-quote quote-icon-left"></i>
-                <span>What stood out was the direct access to a principal-level consultant on every call. No junior intermediaries, no slide decks without substance — just clear thinking and real delivery. Exactly what a complex government program requires.</span>
+                <span data-i18n="test.4.quote">What stood out was the direct access to a principal-level consultant on every call. No junior intermediaries, no slide decks without substance — just clear thinking and real delivery. Exactly what a complex government program requires.</span>
                 <i class="bi bi-quote quote-icon-right"></i>
               </p>
             </div>
@@ -700,21 +729,21 @@
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
               <span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Enterprise Engagements Delivered</p>
+              <p data-i18n="stats.2">Enterprise Engagements Delivered</p>
             </div>
           </div><!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
               <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Security Certifications Delivered</p>
+              <p data-i18n="stats.3">Security Certifications Delivered</p>
             </div>
           </div><!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
               <span data-purecounter-start="0" data-purecounter-end="500" data-purecounter-duration="1" class="purecounter"></span>
-              <p>$M+ in Programs Led</p>
+              <p data-i18n="stats.4">$M+ in Programs Led</p>
             </div>
           </div><!-- End Stats Item -->
 
@@ -729,8 +758,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>End-to-end consulting across the four domains where enterprise IT transformation succeeds or stalls</p>
+        <h2 data-i18n="svc.title">Services</h2>
+        <p data-i18n="svc.subtitle">End-to-end consulting across the four domains where enterprise IT transformation succeeds or stalls</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -743,9 +772,9 @@
                 <i class="bi bi-cloud-arrow-up"></i>
               </div>
               <div>
-                <h3>Cloud & Datacenter Transformation</h3>
-                <p>AWS migrations, hybrid cloud strategy, and datacenter consolidation. We design and deliver cloud architectures that reduce cost, eliminate single points of failure, and scale with your business — without disrupting operations.</p>
-                <a href="#contact" class="read-more">Discuss This Service <i class="bi bi-arrow-right"></i></a>
+                <h3 data-i18n-html="svc.1.h3">Cloud &amp; Datacenter Transformation</h3>
+                <p data-i18n="svc.1.p">AWS migrations, hybrid cloud strategy, and datacenter consolidation. We design and deliver cloud architectures that reduce cost, eliminate single points of failure, and scale with your business — without disrupting operations.</p>
+                <a href="#contact" class="read-more"><span data-i18n="svc.readmore">Discuss This Service</span> <i class="bi bi-arrow-right"></i></a>
               </div>
             </div>
           </div><!-- End Service Card -->
@@ -756,9 +785,9 @@
                 <i class="bi bi-shield-lock"></i>
               </div>
               <div>
-                <h3>Cybersecurity & Compliance</h3>
-                <p>ISO 27001, SOC2, NIST, and SOX implementation — from gap analysis to certification. We implement security controls that satisfy regulators, protect operations, and build board-level confidence in your risk posture.</p>
-                <a href="#contact" class="read-more">Discuss This Service <i class="bi bi-arrow-right"></i></a>
+                <h3 data-i18n-html="svc.2.h3">Cybersecurity &amp; Compliance</h3>
+                <p data-i18n="svc.2.p">ISO 27001, SOC2, NIST, and SOX implementation — from gap analysis to certification. We implement security controls that satisfy regulators, protect operations, and build board-level confidence in your risk posture.</p>
+                <a href="#contact" class="read-more"><span data-i18n="svc.readmore">Discuss This Service</span> <i class="bi bi-arrow-right"></i></a>
               </div>
             </div>
           </div><!-- End Service Card -->
@@ -769,9 +798,9 @@
                 <i class="bi bi-code-slash"></i>
               </div>
               <div>
-                <h3>DevSecOps & Agile Transformation</h3>
-                <p>Secure CI/CD pipelines, SDLC modernization, and team enablement. We embed security into every sprint and help engineering organizations deliver faster, with fewer vulnerabilities and stronger audit trails.</p>
-                <a href="#contact" class="read-more">Discuss This Service <i class="bi bi-arrow-right"></i></a>
+                <h3 data-i18n-html="svc.3.h3">DevSecOps &amp; Agile Transformation</h3>
+                <p data-i18n="svc.3.p">Secure CI/CD pipelines, SDLC modernization, and team enablement. We embed security into every sprint and help engineering organizations deliver faster, with fewer vulnerabilities and stronger audit trails.</p>
+                <a href="#contact" class="read-more"><span data-i18n="svc.readmore">Discuss This Service</span> <i class="bi bi-arrow-right"></i></a>
               </div>
             </div>
           </div><!-- End Service Card -->
@@ -782,9 +811,9 @@
                 <i class="bi bi-diagram-3"></i>
               </div>
               <div>
-                <h3>Enterprise Architecture & Program Leadership</h3>
-                <p>System integration, ERP governance, and large-scale program delivery. We provide the technical and organizational leadership to keep complex, multi-stakeholder IT programs on time, on scope, and aligned to business outcomes.</p>
-                <a href="#contact" class="read-more">Discuss This Service <i class="bi bi-arrow-right"></i></a>
+                <h3 data-i18n-html="svc.4.h3">Enterprise Architecture &amp; Program Leadership</h3>
+                <p data-i18n="svc.4.p">System integration, ERP governance, and large-scale program delivery. We provide the technical and organizational leadership to keep complex, multi-stakeholder IT programs on time, on scope, and aligned to business outcomes.</p>
+                <a href="#contact" class="read-more"><span data-i18n="svc.readmore">Discuss This Service</span> <i class="bi bi-arrow-right"></i></a>
               </div>
             </div>
           </div><!-- End Service Card -->
@@ -800,8 +829,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Engagement Models</h2>
-        <p>Flexible structures built for the way enterprises actually need to work with senior consultants</p>
+        <h2 data-i18n="eng.title">Engagement Models</h2>
+        <p data-i18n="eng.subtitle">Flexible structures built for the way enterprises actually need to work with senior consultants</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -811,30 +840,21 @@
           <!-- Advisory -->
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="pricing-card">
-              <h3>Advisory</h3>
+              <h3 data-i18n="eng.1.h3">Advisory</h3>
               <div class="price">
-                <span class="amount" style="font-size:1.6rem;">Custom Pricing</span>
+                <span class="amount" style="font-size:1.6rem;" data-i18n="eng.1.price">Custom Pricing</span>
               </div>
-              <p class="description">Strategic guidance for organizations that need senior IT leadership without full-time headcount. Ideal for boards, executives, and leadership teams navigating complex decisions.</p>
+              <p class="description" data-i18n="eng.1.desc">Strategic guidance for organizations that need senior IT leadership without full-time headcount. Ideal for boards, executives, and leadership teams navigating complex decisions.</p>
 
-              <h4>What's Included:</h4>
+              <h4 data-i18n="eng.included">What's Included:</h4>
               <ul class="features-list">
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Fractional CTO / CISO services
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Architecture and strategy reviews
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Board-ready reporting and briefings
-                </li>
+                <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="eng.1.li1">Fractional CTO / CISO services</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="eng.1.li2">Architecture and strategy reviews</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="eng.1.li3">Board-ready reporting and briefings</span></li>
               </ul>
 
               <a href="#contact" class="btn btn-primary">
-                Discuss This Model
+                <span data-i18n="eng.btn">Discuss This Model</span>
                 <i class="bi bi-arrow-right"></i>
               </a>
             </div>
@@ -843,35 +863,23 @@
           <!-- Implementation -->
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
             <div class="pricing-card popular">
-              <div class="popular-badge">Most Engaged</div>
-              <h3>Implementation</h3>
+              <div class="popular-badge" data-i18n="eng.badge">Most Engaged</div>
+              <h3 data-i18n="eng.2.h3">Implementation</h3>
               <div class="price">
-                <span class="amount" style="font-size:1.6rem;">Custom Pricing</span>
+                <span class="amount" style="font-size:1.6rem;" data-i18n="eng.2.price">Custom Pricing</span>
               </div>
-              <p class="description">End-to-end delivery of cloud, security, or transformation programs. We own the outcomes alongside your team — from design through go-live and post-launch stabilization.</p>
+              <p class="description" data-i18n="eng.2.desc">End-to-end delivery of cloud, security, or transformation programs. We own the outcomes alongside your team — from design through go-live and post-launch stabilization.</p>
 
-              <h4>What's Included:</h4>
+              <h4 data-i18n="eng.included">What's Included:</h4>
               <ul class="features-list">
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Cloud migration and architecture
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  ISO 27001 / SOC2 certification delivery
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  DevSecOps and Agile enablement
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Capability transfer to internal teams
-                </li>
+                <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="eng.2.li1">Cloud migration and architecture</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="eng.2.li2">ISO 27001 / SOC2 certification delivery</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="eng.2.li3">DevSecOps and Agile enablement</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="eng.2.li4">Capability transfer to internal teams</span></li>
               </ul>
 
               <a href="#contact" class="btn btn-light">
-                Discuss This Model
+                <span data-i18n="eng.btn">Discuss This Model</span>
                 <i class="bi bi-arrow-right"></i>
               </a>
             </div>
@@ -880,38 +888,23 @@
           <!-- Retained Advisory -->
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
             <div class="pricing-card">
-              <h3>Retained Advisory</h3>
+              <h3 data-i18n="eng.3.h3">Retained Advisory</h3>
               <div class="price">
-                <span class="amount" style="font-size:1.6rem;">Custom Pricing</span>
+                <span class="amount" style="font-size:1.6rem;" data-i18n="eng.3.price">Custom Pricing</span>
               </div>
-              <p class="description">Ongoing senior advisory on retainer. For organizations that need continuous oversight, governance support, or fractional CISO coverage without the cost of a full-time executive hire.</p>
+              <p class="description" data-i18n="eng.3.desc">Ongoing senior advisory on retainer. For organizations that need continuous oversight, governance support, or fractional CISO coverage without the cost of a full-time executive hire.</p>
 
-              <h4>What's Included:</h4>
+              <h4 data-i18n="eng.included">What's Included:</h4>
               <ul class="features-list">
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Monthly governance and risk reviews
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Ongoing vCISO coverage
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Executive and board advisory
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Priority access for emerging issues
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i>
-                  Quarterly strategic roadmap updates
-                </li>
+                <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="eng.3.li1">Monthly governance and risk reviews</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="eng.3.li2">Ongoing vCISO coverage</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="eng.3.li3">Executive and board advisory</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="eng.3.li4">Priority access for emerging issues</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="eng.3.li5">Quarterly strategic roadmap updates</span></li>
               </ul>
 
               <a href="#contact" class="btn btn-primary">
-                Discuss This Model
+                <span data-i18n="eng.btn">Discuss This Model</span>
                 <i class="bi bi-arrow-right"></i>
               </a>
             </div>
@@ -930,8 +923,8 @@
         <div class="row">
 
           <div class="col-lg-5" data-aos="fade-up">
-            <h2 class="faq-title">Common Questions from Enterprise Leaders</h2>
-            <p class="faq-description">Direct answers to the questions executives and IT leaders ask before engaging a senior consultant.</p>
+            <h2 class="faq-title" data-i18n="faq.title">Common Questions from Enterprise Leaders</h2>
+            <p class="faq-description" data-i18n="faq.desc">Direct answers to the questions executives and IT leaders ask before engaging a senior consultant.</p>
             <div class="faq-arrow d-none d-lg-block" data-aos="fade-up" data-aos-delay="200">
               <svg class="faq-arrow" width="200" height="211" viewBox="0 0 200 211" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M198.804 194.488C189.279 189.596 179.529 185.52 169.407 182.07L169.384 182.049C169.227 181.994 169.07 181.939 168.912 181.884C166.669 181.139 165.906 184.546 167.669 185.615C174.053 189.473 182.761 191.837 189.146 195.695C156.603 195.912 119.781 196.591 91.266 179.049C62.5221 161.368 48.1094 130.695 56.934 98.891C84.5539 98.7247 112.556 84.0176 129.508 62.667C136.396 53.9724 146.193 35.1448 129.773 30.2717C114.292 25.6624 93.7109 41.8875 83.1971 51.3147C70.1109 63.039 59.63 78.433 54.2039 95.0087C52.1221 94.9842 50.0776 94.8683 48.0703 94.6608C30.1803 92.8027 11.2197 83.6338 5.44902 65.1074C-1.88449 41.5699 14.4994 19.0183 27.9202 1.56641C28.6411 0.625793 27.2862 -0.561638 26.5419 0.358501C13.4588 16.4098 -0.221091 34.5242 0.896608 56.5659C1.8218 74.6941 14.221 87.9401 30.4121 94.2058C37.7076 97.0203 45.3454 98.5003 53.0334 98.8449C47.8679 117.532 49.2961 137.487 60.7729 155.283C87.7615 197.081 139.616 201.147 184.786 201.155L174.332 206.827C172.119 208.033 174.345 211.287 176.537 210.105C182.06 207.125 187.582 204.122 193.084 201.144C193.346 201.147 195.161 199.887 195.423 199.868C197.08 198.548 193.084 201.144 195.528 199.81C196.688 199.192 197.846 198.552 199.006 197.935C200.397 197.167 200.007 195.087 198.804 194.488ZM60.8213 88.0427C67.6894 72.648 78.8538 59.1566 92.1207 49.0388C98.8475 43.9065 106.334 39.2953 114.188 36.1439C117.295 34.8947 120.798 33.6609 124.168 33.635C134.365 33.5511 136.354 42.9911 132.638 51.031C120.47 77.4222 86.8639 93.9837 58.0983 94.9666C58.8971 92.6666 59.783 90.3603 60.8213 88.0427Z" fill="currentColor"></path>
@@ -943,49 +936,49 @@
             <div class="faq-container">
 
               <div class="faq-item faq-active">
-                <h3>What industries do you serve?</h3>
+                <h3 data-i18n="faq.q1">What industries do you serve?</h3>
                 <div class="faq-content">
-                  <p>We work primarily with enterprises, financial institutions, government agencies, and scaling SaaS companies. Our experience spans aviation (Air Canada), financial services, public sector, and large-scale technology organizations including Microsoft, IBM, Accenture, and Kyndryl.</p>
+                  <p data-i18n="faq.a1">We work primarily with enterprises, financial institutions, government agencies, and scaling SaaS companies. Our experience spans aviation (Air Canada), financial services, public sector, and large-scale technology organizations including Microsoft, IBM, Accenture, and Kyndryl.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item">
-                <h3>How do you structure engagements?</h3>
+                <h3 data-i18n="faq.q2">How do you structure engagements?</h3>
                 <div class="faq-content">
-                  <p>We offer three primary models: fixed-scope Advisory (strategic guidance and fractional leadership), Implementation (end-to-end project delivery), and Retained Advisory (ongoing governance and vCISO coverage). Most engagements start with a no-obligation discovery call to define the right structure for your context.</p>
+                  <p data-i18n="faq.a2">We offer three primary models: fixed-scope Advisory (strategic guidance and fractional leadership), Implementation (end-to-end project delivery), and Retained Advisory (ongoing governance and vCISO coverage). Most engagements start with a no-obligation discovery call to define the right structure for your context.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item">
-                <h3>Do you work alongside internal IT teams or independently?</h3>
+                <h3 data-i18n="faq.q3">Do you work alongside internal IT teams or independently?</h3>
                 <div class="faq-content">
-                  <p>Both. We frequently embed with existing IT and security teams to accelerate delivery and transfer knowledge. Where organizations lack internal capacity, we can lead the workstream directly. In all cases, a core objective is building internal capability — so the organization isn't dependent on us beyond the engagement.</p>
+                  <p data-i18n="faq.a3">Both. We frequently embed with existing IT and security teams to accelerate delivery and transfer knowledge. Where organizations lack internal capacity, we can lead the workstream directly. In all cases, a core objective is building internal capability — so the organization isn't dependent on us beyond the engagement.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item">
-                <h3>What certifications and frameworks do you support?</h3>
+                <h3 data-i18n="faq.q4">What certifications and frameworks do you support?</h3>
                 <div class="faq-content">
-                  <p>We have direct delivery experience with ISO 27001, SOC2 Type I and II, NIST Cybersecurity Framework, SOX IT General Controls, and AWS Well-Architected Framework. We also have experience navigating sector-specific regulatory requirements in financial services and government.</p>
+                  <p data-i18n="faq.a4">We have direct delivery experience with ISO 27001, SOC2 Type I and II, NIST Cybersecurity Framework, SOX IT General Controls, and AWS Well-Architected Framework. We also have experience navigating sector-specific regulatory requirements in financial services and government.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item">
-                <h3>How quickly can you mobilize for a project?</h3>
+                <h3 data-i18n="faq.q5">How quickly can you mobilize for a project?</h3>
                 <div class="faq-content">
-                  <p>In most cases we can begin a discovery conversation within 48 hours and formally start an engagement within 5–10 business days. For urgent situations — such as a security incident response or a stalled compliance deadline — we prioritize rapid mobilization.</p>
+                  <p data-i18n="faq.a5">In most cases we can begin a discovery conversation within 48 hours and formally start an engagement within 5–10 business days. For urgent situations — such as a security incident response or a stalled compliance deadline — we prioritize rapid mobilization.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item">
-                <h3>What differentiates Uably from a Big 4 consulting firm?</h3>
+                <h3 data-i18n="faq.q6">What differentiates Uably from a Big 4 consulting firm?</h3>
                 <div class="faq-content">
-                  <p>We deliver the same caliber of thinking and methodology — built from years at organizations like Accenture, IBM, and Microsoft — without the overhead, account management layers, or junior team staffing. You get direct access to a principal-level consultant on every engagement, faster decision cycles, and significantly better value for complex programs that need senior judgment, not headcount.</p>
+                  <p data-i18n="faq.a6">We deliver the same caliber of thinking and methodology — built from years at organizations like Accenture, IBM, and Microsoft — without the overhead, account management layers, or junior team staffing. You get direct access to a principal-level consultant on every engagement, faster decision cycles, and significantly better value for complex programs that need senior judgment, not headcount.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
@@ -1004,9 +997,9 @@
         <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
           <div class="col-xl-10">
             <div class="text-center">
-              <h3>Your IT Transformation Starts Here</h3>
-              <p>Join the enterprises, financial institutions, and government organizations that trust Uably to deliver secure, scalable, and compliant IT — on time and on scope. Let's start with a conversation.</p>
-              <a class="cta-btn" href="#contact">Schedule Your Free Discovery Call</a>
+              <h3 data-i18n="cta2.h3">Your IT Transformation Starts Here</h3>
+              <p data-i18n="cta2.p">Join the enterprises, financial institutions, and government organizations that trust Uably to deliver secure, scalable, and compliant IT — on time and on scope. Let's start with a conversation.</p>
+              <a class="cta-btn" href="#contact" data-i18n="cta2.btn">Schedule Your Free Discovery Call</a>
             </div>
           </div>
         </div>
@@ -1019,8 +1012,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Let's Start a Conversation</h2>
-        <p>Whether you're planning a cloud migration, need compliance guidance, or want a trusted advisor for your leadership team — we're ready</p>
+        <h2 data-i18n="contact.title">Let's Start a Conversation</h2>
+        <p data-i18n="contact.subtitle">Whether you're planning a cloud migration, need compliance guidance, or want a trusted advisor for your leadership team — we're ready</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -1028,17 +1021,17 @@
         <div class="row g-4 g-lg-5">
           <div class="col-lg-5">
             <div class="info-box" data-aos="fade-up" data-aos-delay="200">
-              <h3>Get In Touch</h3>
-              <p>Our engagements start with a no-obligation discovery call. Tell us where you are and where you need to go — we'll take it from there.</p>
+              <h3 data-i18n="contact.box.h3">Get In Touch</h3>
+              <p data-i18n="contact.box.p">Our engagements start with a no-obligation discovery call. Tell us where you are and where you need to go — we'll take it from there.</p>
 
               <div class="info-item" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-box">
                   <i class="bi bi-geo-alt"></i>
                 </div>
                 <div class="content">
-                  <h4>Location</h4>
-                  <p>Serving clients across North America</p>
-                  <p>and internationally</p>
+                  <h4 data-i18n="contact.loc.h4">Location</h4>
+                  <p data-i18n="contact.loc.p1">Serving clients across North America</p>
+                  <p data-i18n="contact.loc.p2">and internationally</p>
                 </div>
               </div>
 
@@ -1047,9 +1040,9 @@
                   <i class="bi bi-telephone"></i>
                 </div>
                 <div class="content">
-                  <h4>Schedule a Call</h4>
-                  <p>Book a discovery call via email</p>
-                  <p>Response within 24 hours</p>
+                  <h4 data-i18n="contact.phone.h4">Schedule a Call</h4>
+                  <p data-i18n="contact.phone.p1">Book a discovery call via email</p>
+                  <p data-i18n="contact.phone.p2">Response within 24 hours</p>
                 </div>
               </div>
 
@@ -1058,7 +1051,7 @@
                   <i class="bi bi-envelope"></i>
                 </div>
                 <div class="content">
-                  <h4>Email Address</h4>
+                  <h4 data-i18n="contact.email.h4">Email Address</h4>
                   <p>contact@uably.com</p>
                   <p>For urgent inquiries: urgent@uably.com</p>
                 </div>
@@ -1068,26 +1061,26 @@
 
           <div class="col-lg-7">
             <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
-              <h3>Send Us a Message</h3>
-              <p>Describe your challenge, the scope of what you're working on, and the best way to reach you. We'll respond within one business day.</p>
+              <h3 data-i18n="contact.form.h3">Send Us a Message</h3>
+              <p data-i18n="contact.form.p">Describe your challenge, the scope of what you're working on, and the best way to reach you. We'll respond within one business day.</p>
 
               <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
                 <div class="row gy-4">
 
                   <div class="col-md-6">
-                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                    <input type="text" name="name" class="form-control" placeholder="Your Name" data-i18n-ph="contact.form.name" required="">
                   </div>
 
                   <div class="col-md-6 ">
-                    <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                    <input type="email" class="form-control" name="email" placeholder="Your Email" data-i18n-ph="contact.form.email" required="">
                   </div>
 
                   <div class="col-12">
-                    <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                    <input type="text" class="form-control" name="subject" placeholder="Subject" data-i18n-ph="contact.form.subject" required="">
                   </div>
 
                   <div class="col-12">
-                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                    <textarea class="form-control" name="message" rows="6" placeholder="Message" data-i18n-ph="contact.form.msg" required=""></textarea>
                   </div>
 
                   <div class="col-12 text-center">
@@ -1095,7 +1088,7 @@
                     <div class="error-message"></div>
                     <div class="sent-message">Your message has been sent. Thank you!</div>
 
-                    <button type="submit" class="btn">Send Message</button>
+                    <button type="submit" class="btn" data-i18n="contact.form.btn">Send Message</button>
                   </div>
 
                 </div>
@@ -1136,46 +1129,46 @@
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Quick Links</h4>
+          <h4 data-i18n="footer.links">Quick Links</h4>
           <ul>
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#pricing">Engagements</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#hero" data-i18n="nav.home">Home</a></li>
+            <li><a href="#about" data-i18n="nav.about">About</a></li>
+            <li><a href="#services" data-i18n="nav.services">Services</a></li>
+            <li><a href="#pricing" data-i18n="nav.engagements">Engagements</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
           </ul>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
+          <h4 data-i18n="footer.services">Our Services</h4>
           <ul>
-            <li><a href="#services">Cloud Transformation</a></li>
-            <li><a href="#services">Cybersecurity &amp; Compliance</a></li>
-            <li><a href="#services">DevSecOps</a></li>
-            <li><a href="#services">Enterprise Architecture</a></li>
-            <li><a href="#services">IT Program Leadership</a></li>
+            <li><a href="#services" data-i18n="footer.svc1">Cloud Transformation</a></li>
+            <li><a href="#services" data-i18n-html="footer.svc2">Cybersecurity &amp; Compliance</a></li>
+            <li><a href="#services" data-i18n="footer.svc3">DevSecOps</a></li>
+            <li><a href="#services" data-i18n="footer.svc4">Enterprise Architecture</a></li>
+            <li><a href="#services" data-i18n="footer.svc5">IT Program Leadership</a></li>
           </ul>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Expertise</h4>
+          <h4 data-i18n="footer.exp">Expertise</h4>
           <ul>
-            <li><a href="#features">AWS &amp; Hybrid Cloud</a></li>
-            <li><a href="#features">ISO 27001 &amp; SOC2</a></li>
-            <li><a href="#features">NIST &amp; SOX</a></li>
-            <li><a href="#features">Agile &amp; DevSecOps</a></li>
-            <li><a href="#features">Executive Advisory</a></li>
+            <li><a href="#features" data-i18n-html="footer.exp1">AWS &amp; Hybrid Cloud</a></li>
+            <li><a href="#features" data-i18n-html="footer.exp2">ISO 27001 &amp; SOC2</a></li>
+            <li><a href="#features" data-i18n-html="footer.exp3">NIST &amp; SOX</a></li>
+            <li><a href="#features" data-i18n-html="footer.exp4">Agile &amp; DevSecOps</a></li>
+            <li><a href="#features" data-i18n="footer.exp5">Executive Advisory</a></li>
           </ul>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Industries</h4>
+          <h4 data-i18n="footer.ind">Industries</h4>
           <ul>
-            <li><a href="#contact">Financial Services</a></li>
-            <li><a href="#contact">Government</a></li>
-            <li><a href="#contact">Enterprise IT</a></li>
-            <li><a href="#contact">SaaS &amp; Technology</a></li>
-            <li><a href="#contact">Aviation &amp; Transport</a></li>
+            <li><a href="#contact" data-i18n="footer.ind1">Financial Services</a></li>
+            <li><a href="#contact" data-i18n="footer.ind2">Government</a></li>
+            <li><a href="#contact" data-i18n="footer.ind3">Enterprise IT</a></li>
+            <li><a href="#contact" data-i18n-html="footer.ind4">SaaS &amp; Technology</a></li>
+            <li><a href="#contact" data-i18n="footer.ind5">Aviation &amp; Transport</a></li>
           </ul>
         </div>
 
@@ -1183,7 +1176,7 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Uably</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Uably</strong> <span data-i18n="footer.rights">All Rights Reserved</span></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
@@ -1208,6 +1201,9 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- i18n Language Switcher -->
+  <script src="assets/js/i18n.js"></script>
   
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-38FSTDTW2P"></script>
