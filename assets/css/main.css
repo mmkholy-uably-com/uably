@@ -1563,21 +1563,40 @@ section,
   opacity: 1;
 }
 
+.client-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.45;
+  transition: opacity 0.3s;
+}
+
+.client-item:hover {
+  opacity: 1;
+}
+
+.client-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: filter 0.3s;
+}
+
+.client-item:hover .client-logo {
+  filter: none;
+}
+
 .client-name-text {
   display: block;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--default-color);
-  opacity: 0.45;
-  transition: opacity 0.3s;
   white-space: nowrap;
   text-align: center;
-}
-
-.client-name-text:hover {
-  opacity: 1;
 }
 
 .clients .swiper-wrapper {
