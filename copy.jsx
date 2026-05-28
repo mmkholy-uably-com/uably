@@ -33,6 +33,8 @@ const COPY = {
         "ISO 27001 & SOC2 delivery",
         "Cloud & datacenter transformation",
         "DevSecOps & agile enablement",
+        "ServiceNow GRC, IRM & TPRM",
+        "ServiceNow ITOM & Instance Validation",
         "Executive advisory & governance",
         "Enterprise architecture & ERP",
         "NIST, SOX & regulatory compliance"
@@ -48,7 +50,7 @@ const COPY = {
 
     expertise: {
       eyebrow: "Our expertise",
-      title: "Three disciplines. Decades of depth.",
+      title: "Four disciplines. Decades of depth.",
       sub: "Deep, proven capability across the domains that matter most to enterprise IT leaders.",
       tabs: [
         {
@@ -84,6 +86,19 @@ const COPY = {
             "Shift-left security practices that reduce vulnerabilities and accelerate release cycles without added risk."
           ],
           imgLabel: "Engineering team photo"
+        },
+        {
+          name: "ServiceNow & GRC",
+          h: "ServiceNow platform & GRC",
+          p: "We implement, optimize, and govern ServiceNow across its core modules — with specialized depth in GRC, IRM, TPRM, and ITOM. From greenfield instances to complex upgrades, we deliver ServiceNow programs that stick.",
+          li: [
+            "GRC & IRM (Integrated Risk Management) — policy and compliance management, risk registers, audit management, and business continuity programs built natively on the Now Platform.",
+            "TPRM (Third Party Risk Management) — vendor onboarding workflows, continuous monitoring, and tiered risk assessment frameworks aligned to your procurement and legal requirements.",
+            "ITOM (IT Operations Management) — Service Mapping, Discovery, Event Management, and Cloud Management to create a living CMDB and reduce MTTR across your IT estate.",
+            "Instance Validation & health checks — structured assessments of your ServiceNow instance against ServiceNow best practices, upgrade readiness, and performance benchmarks.",
+            "Platform governance — upgrade planning, scoped application design, integration patterns, and center-of-excellence enablement for sustained platform health."
+          ],
+          imgLabel: "ServiceNow / GRC dashboard photo"
         }
       ]
     },
@@ -143,12 +158,13 @@ const COPY = {
     services: {
       eyebrow: "Services",
       title: "End-to-end consulting where transformation succeeds or stalls.",
-      sub: "Four domains. One accountable principal on every engagement.",
+      sub: "Five domains. One accountable principal on every engagement.",
       items: [
         { n: "01", icon: "cloud", t: "Cloud & datacenter transformation", d: "AWS migrations, hybrid cloud strategy, and datacenter consolidation. We design and deliver cloud architectures that reduce cost, eliminate single points of failure, and scale with your business — without disrupting operations.", tags: ["AWS", "Hybrid", "Migration"] },
         { n: "02", icon: "shield", t: "Cybersecurity & compliance", d: "ISO 27001, SOC2, NIST, and SOX implementation — from gap analysis to certification. We implement security controls that satisfy regulators, protect operations, and build board-level confidence in your risk posture.", tags: ["ISO 27001", "SOC2", "NIST", "SOX"] },
         { n: "03", icon: "code", t: "DevSecOps & agile transformation", d: "Secure CI/CD pipelines, SDLC modernization, and team enablement. We embed security into every sprint and help engineering organizations deliver faster, with fewer vulnerabilities and stronger audit trails.", tags: ["CI/CD", "SDLC", "Agile"] },
-        { n: "04", icon: "diagram", t: "Enterprise architecture & program leadership", d: "System integration, ERP governance, and large-scale program delivery. We provide the technical and organizational leadership to keep complex, multi-stakeholder IT programs on time, on scope, and aligned to business outcomes.", tags: ["EA", "ERP", "Programs"] }
+        { n: "04", icon: "diagram", t: "Enterprise architecture & program leadership", d: "System integration, ERP governance, and large-scale program delivery. We provide the technical and organizational leadership to keep complex, multi-stakeholder IT programs on time, on scope, and aligned to business outcomes.", tags: ["EA", "ERP", "Programs"] },
+        { n: "05", icon: "shield", t: "ServiceNow & GRC", d: "Full-lifecycle ServiceNow consulting — from platform health and Instance Validation through to GRC, IRM, TPRM, and ITOM implementation. We configure the Now Platform to automate risk and compliance workflows, unify your CMDB, and give leadership real-time visibility into enterprise risk.", tags: ["GRC", "IRM", "TPRM", "ITOM", "ServiceNow"] }
       ],
       readmore: "Discuss this service"
     },
@@ -191,7 +207,8 @@ const COPY = {
         { q: "What industries do you serve?", a: "We work primarily with enterprises, financial institutions, government agencies, and scaling SaaS companies. Our experience spans aviation (Air Canada), financial services, public sector, and large-scale technology organizations including Microsoft, IBM, Accenture, and Kyndryl." },
         { q: "How do you structure engagements?", a: "We offer three primary models: fixed-scope Advisory (strategic guidance and fractional leadership), Implementation (end-to-end project delivery), and Retained Advisory (ongoing governance and vCISO coverage). Most engagements start with a no-obligation discovery call to define the right structure for your context." },
         { q: "Do you work alongside internal IT teams or independently?", a: "Both. We frequently embed with existing IT and security teams to accelerate delivery and transfer knowledge. Where organizations lack internal capacity, we can lead the workstream directly. In all cases, a core objective is building internal capability — so the organization isn't dependent on us beyond the engagement." },
-        { q: "What certifications and frameworks do you support?", a: "We have direct delivery experience with ISO 27001, SOC2 Type I and II, NIST Cybersecurity Framework, SOX IT General Controls, and AWS Well-Architected Framework. We also have experience navigating sector-specific regulatory requirements in financial services and government." },
+        { q: "What certifications and frameworks do you support?", a: "We have direct delivery experience with ISO 27001, SOC2 Type I and II, NIST Cybersecurity Framework, SOX IT General Controls, and AWS Well-Architected Framework. On the ServiceNow side, we deliver GRC (Policy & Compliance, Risk Management, Audit Management), IRM (Integrated Risk Management), TPRM (Third Party Risk Management), ITOM (IT Operations Management including Service Mapping, Discovery, and Event Management), and Instance Validation. We also have experience navigating sector-specific regulatory requirements in financial services and government." },
+        { q: "What does a ServiceNow GRC or ITOM engagement look like?", a: "Engagements typically begin with an Instance Validation and current-state assessment — we audit your existing Now Platform configuration against ServiceNow best practices before recommending any new workstreams. From there, we scope and deliver the specific modules you need: GRC and IRM for risk and compliance automation, TPRM for vendor risk workflows, or ITOM for CMDB accuracy and operational visibility. We work alongside your ServiceNow team or serve as the lead implementation partner, and we always leave your team with the knowledge to sustain what we've built." },
         { q: "How quickly can you mobilize for a project?", a: "In most cases we can begin a discovery conversation within 48 hours and formally start an engagement within 5–10 business days. For urgent situations — such as a security incident response or a stalled compliance deadline — we prioritize rapid mobilization." },
         { q: "What differentiates Uably from a Big 4 consulting firm?", a: "We deliver the same caliber of thinking and methodology — built from years at organizations like Accenture, IBM, and Microsoft — without the overhead, account management layers, or junior team staffing. You get direct access to a principal-level consultant on every engagement, faster decision cycles, and significantly better value for complex programs that need senior judgment, not headcount." }
       ]
@@ -226,8 +243,8 @@ const COPY = {
       email: "contact@uably.com",
       cols: [
         { h: "Quick Links", l: ["Home", "About", "Services", "Engagements", "Contact"] },
-        { h: "Our Services", l: ["Cloud Transformation", "Cybersecurity & Compliance", "DevSecOps", "Enterprise Architecture", "IT Program Leadership"] },
-        { h: "Expertise", l: ["AWS & Hybrid Cloud", "ISO 27001 & SOC2", "NIST & SOX", "Agile & DevSecOps", "Executive Advisory"] },
+        { h: "Our Services", l: ["Cloud Transformation", "Cybersecurity & Compliance", "DevSecOps", "Enterprise Architecture", "ServiceNow & GRC", "IT Program Leadership"] },
+        { h: "Expertise", l: ["AWS & Hybrid Cloud", "ISO 27001 & SOC2", "NIST & SOX", "ServiceNow GRC & IRM", "TPRM & ITOM", "Agile & DevSecOps", "Executive Advisory"] },
         { h: "Industries", l: ["Financial Services", "Government", "Enterprise IT", "SaaS & Technology", "Aviation & Transport"] }
       ],
       rights: "All rights reserved"
@@ -267,6 +284,8 @@ const COPY = {
         "Livraison ISO 27001 et SOC2",
         "Transformation cloud et centres de données",
         "DevSecOps et activation agile",
+        "ServiceNow GRC, IRM et TPRM",
+        "ServiceNow ITOM et validation d'instance",
         "Conseil exécutif et gouvernance",
         "Architecture d'entreprise et ERP",
         "Conformité NIST, SOX et réglementaire"
@@ -282,7 +301,7 @@ const COPY = {
 
     expertise: {
       eyebrow: "Notre expertise",
-      title: "Trois disciplines. Des décennies de profondeur.",
+      title: "Quatre disciplines. Des décennies de profondeur.",
       sub: "Une capacité approfondie et éprouvée dans les domaines qui comptent le plus pour les dirigeants TI.",
       tabs: [
         {
@@ -318,6 +337,19 @@ const COPY = {
             "Pratiques shift-left qui réduisent les vulnérabilités et accélèrent les cycles de release."
           ],
           imgLabel: "Photo équipe ingénierie"
+        },
+        {
+          name: "ServiceNow & GRC",
+          h: "Plateforme ServiceNow & GRC",
+          p: "Nous mettons en œuvre, optimisons et gouvernons ServiceNow sur ses modules principaux — avec une expertise approfondie en GRC, IRM, TPRM et ITOM. Des instances greenfield aux mises à niveau complexes, nous livrons des programmes ServiceNow durables.",
+          li: [
+            "GRC & IRM (Gestion intégrée des risques) — gestion des politiques et de la conformité, registres de risques, gestion des audits et programmes de continuité des affaires sur la Now Platform.",
+            "TPRM (Gestion des risques tiers) — flux d'intégration des fournisseurs, surveillance continue et cadres d'évaluation des risques alignés à vos exigences d'approvisionnement.",
+            "ITOM (Gestion des opérations TI) — Service Mapping, Discovery, gestion des événements et gestion du cloud pour un CMDB vivant et une réduction du MTTR.",
+            "Validation d'instance et bilans de santé — évaluations structurées de votre instance ServiceNow selon les meilleures pratiques, la préparation aux mises à niveau et les benchmarks de performance.",
+            "Gouvernance de la plateforme — planification des mises à niveau, conception d'applications scopées, modèles d'intégration et activation du centre d'excellence."
+          ],
+          imgLabel: "Photo tableau de bord ServiceNow / GRC"
         }
       ]
     },
@@ -377,12 +409,13 @@ const COPY = {
     services: {
       eyebrow: "Services",
       title: "Conseil de bout en bout là où la transformation réussit ou échoue.",
-      sub: "Quatre domaines. Un principal responsable sur chaque mandat.",
+      sub: "Cinq domaines. Un principal responsable sur chaque mandat.",
       items: [
         { n: "01", icon: "cloud", t: "Transformation cloud et centres de données", d: "Migrations AWS, stratégie cloud hybride et consolidation de centres de données. Nous concevons et livrons des architectures cloud qui réduisent les coûts, éliminent les points de défaillance uniques et évoluent avec votre entreprise — sans perturber les opérations.", tags: ["AWS", "Hybride", "Migration"] },
         { n: "02", icon: "shield", t: "Cybersécurité et conformité", d: "Mise en œuvre ISO 27001, SOC2, NIST et SOX — de l'analyse des écarts à la certification. Nous mettons en place des contrôles qui satisfont les régulateurs, protègent les opérations et donnent confiance au conseil sur votre posture de risque.", tags: ["ISO 27001", "SOC2", "NIST", "SOX"] },
         { n: "03", icon: "code", t: "DevSecOps et transformation agile", d: "Pipelines CI/CD sécurisés, modernisation du SDLC et activation des équipes. Nous intégrons la sécurité dans chaque sprint et aidons les organisations d'ingénierie à livrer plus vite, avec moins de vulnérabilités et de meilleures pistes d'audit.", tags: ["CI/CD", "SDLC", "Agile"] },
-        { n: "04", icon: "diagram", t: "Architecture d'entreprise et direction de programme", d: "Intégration de systèmes, gouvernance ERP et livraison de programmes à grande échelle. Nous fournissons le leadership technique et organisationnel pour garder les programmes TI complexes dans les délais, le scope et alignés aux résultats d'affaires.", tags: ["AE", "ERP", "Programmes"] }
+        { n: "04", icon: "diagram", t: "Architecture d'entreprise et direction de programme", d: "Intégration de systèmes, gouvernance ERP et livraison de programmes à grande échelle. Nous fournissons le leadership technique et organisationnel pour garder les programmes TI complexes dans les délais, le scope et alignés aux résultats d'affaires.", tags: ["AE", "ERP", "Programmes"] },
+        { n: "05", icon: "shield", t: "ServiceNow & GRC", d: "Conseil ServiceNow complet — de la santé de la plateforme et de la validation d'instance jusqu'à la mise en œuvre du GRC, IRM, TPRM et ITOM. Nous configurons la Now Platform pour automatiser les flux de risque et de conformité, unifier votre CMDB et donner à la direction une visibilité en temps réel sur le risque d'entreprise.", tags: ["GRC", "IRM", "TPRM", "ITOM", "ServiceNow"] }
       ],
       readmore: "Discuter ce service"
     },
@@ -409,7 +442,8 @@ const COPY = {
         { q: "Quelles industries servez-vous?", a: "Nous travaillons principalement avec les grandes entreprises, institutions financières, agences gouvernementales et SaaS en croissance. Notre expérience couvre l'aviation (Air Canada), les services financiers, le secteur public et les grandes organisations technologiques dont Microsoft, IBM, Accenture et Kyndryl." },
         { q: "Comment structurez-vous les mandats?", a: "Nous offrons trois modèles principaux : Conseil à portée fixe (orientation stratégique et leadership fractionné), Mise en œuvre (livraison de projet de bout en bout), et Conseil sous mandat (gouvernance continue et couverture vCISO). La plupart des mandats commencent par un appel exploratoire sans engagement." },
         { q: "Travaillez-vous avec les équipes TI internes ou indépendamment?", a: "Les deux. Nous nous intégrons fréquemment aux équipes TI et sécurité existantes pour accélérer la livraison et transférer les connaissances. Là où les organisations manquent de capacité interne, nous pouvons diriger le flux de travail directement. Dans tous les cas, un objectif central est de bâtir la capacité interne." },
-        { q: "Quelles certifications et cadres supportez-vous?", a: "Nous avons une expérience de livraison directe avec ISO 27001, SOC2 Type I et II, NIST Cybersecurity Framework, contrôles SOX et AWS Well-Architected. Nous avons aussi de l'expérience avec les exigences sectorielles en services financiers et gouvernement." },
+        { q: "Quelles certifications et cadres supportez-vous?", a: "Nous avons une expérience de livraison directe avec ISO 27001, SOC2 Type I et II, NIST Cybersecurity Framework, contrôles SOX et AWS Well-Architected. Du côté ServiceNow, nous livrons le GRC (Politiques et conformité, Gestion des risques, Gestion des audits), IRM (Gestion intégrée des risques), TPRM (Gestion des risques tiers), ITOM (Service Mapping, Discovery, Gestion des événements) et la Validation d'instance. Nous avons aussi de l'expérience avec les exigences sectorielles en services financiers et gouvernement." },
+        { q: "À quoi ressemble un mandat ServiceNow GRC ou ITOM?", a: "Les mandats débutent généralement par une Validation d'instance et une évaluation de l'état actuel — nous auditons votre configuration ServiceNow existante selon les meilleures pratiques avant de recommander de nouveaux flux. Ensuite, nous cadrons et livrons les modules spécifiques requis : GRC et IRM pour l'automatisation des risques et de la conformité, TPRM pour les flux de risque fournisseur, ou ITOM pour la précision du CMDB et la visibilité opérationnelle. Nous travaillons aux côtés de votre équipe ServiceNow ou agissons comme partenaire de mise en œuvre principal." },
         { q: "À quelle vitesse pouvez-vous mobiliser?", a: "Dans la plupart des cas, nous pouvons commencer une conversation exploratoire dans les 48 heures et démarrer formellement un mandat dans les 5–10 jours ouvrables. Pour les situations urgentes, nous priorisons une mobilisation rapide." },
         { q: "Qu'est-ce qui distingue Uably d'une firme Big 4?", a: "Nous livrons le même calibre de réflexion et de méthodologie — construit par des années chez Accenture, IBM et Microsoft — sans la lourdeur, les couches de gestion de compte ou les équipes juniors. Vous obtenez un accès direct à un consultant principal sur chaque mandat, des cycles de décision plus rapides et une bien meilleure valeur." }
       ]
@@ -444,8 +478,8 @@ const COPY = {
       email: "contact@uably.com",
       cols: [
         { h: "Liens rapides", l: ["Accueil", "À propos", "Services", "Mandats", "Contact"] },
-        { h: "Nos services", l: ["Transformation cloud", "Cybersécurité et conformité", "DevSecOps", "Architecture d'entreprise", "Direction de programmes TI"] },
-        { h: "Expertise", l: ["AWS et cloud hybride", "ISO 27001 et SOC2", "NIST et SOX", "Agile et DevSecOps", "Conseil exécutif"] },
+        { h: "Nos services", l: ["Transformation cloud", "Cybersécurité et conformité", "DevSecOps", "Architecture d'entreprise", "ServiceNow & GRC", "Direction de programmes TI"] },
+        { h: "Expertise", l: ["AWS et cloud hybride", "ISO 27001 et SOC2", "NIST et SOX", "ServiceNow GRC et IRM", "TPRM et ITOM", "Agile et DevSecOps", "Conseil exécutif"] },
         { h: "Industries", l: ["Services financiers", "Gouvernement", "TI d'entreprise", "SaaS et technologie", "Aviation et transport"] }
       ],
       rights: "Tous droits réservés"
