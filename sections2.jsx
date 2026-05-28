@@ -27,7 +27,7 @@ function CTABanner1({ t }) {
               <h2 className="display" style={{ fontSize: "clamp(28px, 3.4vw, 44px)", margin: "16px 0 14px" }}>{t.cta1.title}</h2>
               <p style={{ color: "var(--ink-dim)", fontSize: 16, lineHeight: 1.6, margin: 0, maxWidth: 640 }}>{t.cta1.sub}</p>
             </div>
-            <button className="btn btn-blue" style={{ position: "relative", whiteSpace: "nowrap" }}>{t.cta1.btn} <Arrow /></button>
+            <a href="https://calendly.com/melkhouly/prospect" target="_blank" rel="noopener noreferrer" className="btn btn-blue" style={{ position: "relative", whiteSpace: "nowrap" }}>{t.cta1.btn} <Arrow /></a>
           </div>
         </Reveal>
       </div>
@@ -260,9 +260,9 @@ function TierCard({ tier, t }) {
         ))}
       </ul>
 
-      <button className={pop ? "btn btn-primary" : "btn btn-ghost"} style={{ justifyContent: "center" }}>
+      <a href="https://calendly.com/melkhouly/prospect" target="_blank" rel="noopener noreferrer" className={pop ? "btn btn-primary" : "btn btn-ghost"} style={{ justifyContent: "center", display: "inline-flex" }}>
         {t.engagement.btn} <Arrow />
-      </button>
+      </a>
     </div>
   );
 }
@@ -331,9 +331,9 @@ function CTABanner2({ t }) {
               <p style={{ fontSize: 18, color: "rgba(255,255,255,.82)", maxWidth: 720, lineHeight: 1.55, margin: "0 auto 40px" }}>
                 {t.cta2.sub}
               </p>
-              <button className="btn btn-primary" style={{ fontSize: 15, padding: "16px 28px" }}>
+              <a href="https://calendly.com/melkhouly/prospect" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ fontSize: 15, padding: "16px 28px" }}>
                 {t.cta2.btn} <Arrow />
-              </button>
+              </a>
             </div>
           </div>
         </Reveal>

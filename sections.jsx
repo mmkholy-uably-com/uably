@@ -22,6 +22,12 @@ function Reveal({ children, delay = 0, as: As = "div", ...rest }) {
   return <As ref={ref} className={`reveal ${rest.className || ""}`} {...rest}>{children}</As>;
 }
 
+// ─── Calendly Integration ─────────────────────────────────────────────
+const CALENDLY_URL = "https://calendly.com/melkhouly/prospect";
+function openCalendly() {
+  window.open(CALENDLY_URL, "_blank", "width=800,height=600");
+}
+
 function Eyebrow({ children, color }) {
   return (
     <div className="eyebrow">
