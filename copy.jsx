@@ -35,6 +35,7 @@ const COPY = {
         "DevSecOps & agile enablement",
         "ServiceNow GRC, IRM & TPRM",
         "ServiceNow ITOM & Instance Validation",
+        "Everbridge & crisis management",
         "Executive advisory & governance",
         "Enterprise architecture & ERP",
         "NIST, SOX & regulatory compliance"
@@ -50,7 +51,7 @@ const COPY = {
 
     expertise: {
       eyebrow: "Our expertise",
-      title: "Four disciplines. Decades of depth.",
+      title: "Five disciplines. Decades of depth.",
       sub: "Deep, proven capability across the domains that matter most to enterprise IT leaders.",
       tabs: [
         {
@@ -99,6 +100,19 @@ const COPY = {
             "Platform governance — upgrade planning, scoped application design, integration patterns, and center-of-excellence enablement for sustained platform health."
           ],
           imgLabel: "ServiceNow / GRC dashboard photo"
+        },
+        {
+          name: "Everbridge & Crisis Mgmt",
+          h: "Everbridge & crisis management",
+          p: "When a critical event strikes — a cyberattack, natural disaster, or operational outage — the speed and precision of your response defines the outcome. We implement and optimize Everbridge to make that response automatic, coordinated, and auditable.",
+          li: [
+            "Everbridge CEM (Critical Event Management) implementation — mass notification, visual command, IT alerting, and safety connection configured for your organization's structure and risk profile.",
+            "Business Continuity Management (BCM) program design — BIA, BCP, and DRP aligned to regulatory requirements (ISO 22301, FFIEC, DORA) and integrated with your existing ITSM and GRC platforms.",
+            "Crisis communication playbooks and escalation workflows — so the right people get the right information at the right time, without manual coordination under pressure.",
+            "Tabletop exercises and simulation testing — validating your crisis response capability before an event occurs, with findings fed back into your continuity and risk programs.",
+            "Integration with ServiceNow, SIEM, and monitoring platforms — closing the loop between IT detection, operational response, and stakeholder communication."
+          ],
+          imgLabel: "Crisis management / EOC photo"
         }
       ]
     },
@@ -158,13 +172,14 @@ const COPY = {
     services: {
       eyebrow: "Services",
       title: "End-to-end consulting where transformation succeeds or stalls.",
-      sub: "Five domains. One accountable principal on every engagement.",
+      sub: "Six domains. One accountable principal on every engagement.",
       items: [
         { n: "01", icon: "cloud", t: "Cloud & datacenter transformation", d: "AWS migrations, hybrid cloud strategy, and datacenter consolidation. We design and deliver cloud architectures that reduce cost, eliminate single points of failure, and scale with your business — without disrupting operations.", tags: ["AWS", "Hybrid", "Migration"] },
         { n: "02", icon: "shield", t: "Cybersecurity & compliance", d: "ISO 27001, SOC2, NIST, and SOX implementation — from gap analysis to certification. We implement security controls that satisfy regulators, protect operations, and build board-level confidence in your risk posture.", tags: ["ISO 27001", "SOC2", "NIST", "SOX"] },
         { n: "03", icon: "code", t: "DevSecOps & agile transformation", d: "Secure CI/CD pipelines, SDLC modernization, and team enablement. We embed security into every sprint and help engineering organizations deliver faster, with fewer vulnerabilities and stronger audit trails.", tags: ["CI/CD", "SDLC", "Agile"] },
         { n: "04", icon: "diagram", t: "Enterprise architecture & program leadership", d: "System integration, ERP governance, and large-scale program delivery. We provide the technical and organizational leadership to keep complex, multi-stakeholder IT programs on time, on scope, and aligned to business outcomes.", tags: ["EA", "ERP", "Programs"] },
-        { n: "05", icon: "shield", t: "ServiceNow & GRC", d: "Full-lifecycle ServiceNow consulting — from platform health and Instance Validation through to GRC, IRM, TPRM, and ITOM implementation. We configure the Now Platform to automate risk and compliance workflows, unify your CMDB, and give leadership real-time visibility into enterprise risk.", tags: ["GRC", "IRM", "TPRM", "ITOM", "ServiceNow"] }
+        { n: "05", icon: "shield", t: "ServiceNow & GRC", d: "Full-lifecycle ServiceNow consulting — from platform health and Instance Validation through to GRC, IRM, TPRM, and ITOM implementation. We configure the Now Platform to automate risk and compliance workflows, unify your CMDB, and give leadership real-time visibility into enterprise risk.", tags: ["GRC", "IRM", "TPRM", "ITOM", "ServiceNow"] },
+        { n: "06", icon: "shield", t: "Everbridge & Crisis Management", d: "Implementation and optimization of Everbridge for enterprise-wide critical event management and business continuity. We design CEM programs that connect mass notification, incident response, IT alerting, and business continuity planning into a single coordinated operating model — so organizations can respond faster and recover with confidence.", tags: ["Everbridge", "CEM", "BCM", "Crisis", "Incident Response"] }
       ],
       readmore: "Discuss this service"
     },
@@ -243,8 +258,8 @@ const COPY = {
       email: "contact@uably.com",
       cols: [
         { h: "Quick Links", l: ["Home", "About", "Services", "Engagements", "Contact"] },
-        { h: "Our Services", l: ["Cloud Transformation", "Cybersecurity & Compliance", "DevSecOps", "Enterprise Architecture", "ServiceNow & GRC", "IT Program Leadership"] },
-        { h: "Expertise", l: ["AWS & Hybrid Cloud", "ISO 27001 & SOC2", "NIST & SOX", "ServiceNow GRC & IRM", "TPRM & ITOM", "Agile & DevSecOps", "Executive Advisory"] },
+        { h: "Our Services", l: ["Cloud Transformation", "Cybersecurity & Compliance", "DevSecOps", "Enterprise Architecture", "ServiceNow & GRC", "Everbridge & Crisis Mgmt", "IT Program Leadership"] },
+        { h: "Expertise", l: ["AWS & Hybrid Cloud", "ISO 27001 & SOC2", "NIST & SOX", "ServiceNow GRC & IRM", "TPRM & ITOM", "Everbridge CEM & BCM", "Agile & DevSecOps", "Executive Advisory"] },
         { h: "Industries", l: ["Financial Services", "Government", "Enterprise IT", "SaaS & Technology", "Aviation & Transport"] }
       ],
       rights: "All rights reserved"
@@ -286,6 +301,7 @@ const COPY = {
         "DevSecOps et activation agile",
         "ServiceNow GRC, IRM et TPRM",
         "ServiceNow ITOM et validation d'instance",
+        "Everbridge et gestion de crise",
         "Conseil exécutif et gouvernance",
         "Architecture d'entreprise et ERP",
         "Conformité NIST, SOX et réglementaire"
@@ -301,7 +317,7 @@ const COPY = {
 
     expertise: {
       eyebrow: "Notre expertise",
-      title: "Quatre disciplines. Des décennies de profondeur.",
+      title: "Cinq disciplines. Des décennies de profondeur.",
       sub: "Une capacité approfondie et éprouvée dans les domaines qui comptent le plus pour les dirigeants TI.",
       tabs: [
         {
@@ -350,6 +366,19 @@ const COPY = {
             "Gouvernance de la plateforme — planification des mises à niveau, conception d'applications scopées, modèles d'intégration et activation du centre d'excellence."
           ],
           imgLabel: "Photo tableau de bord ServiceNow / GRC"
+        },
+        {
+          name: "Everbridge & Gestion de crise",
+          h: "Everbridge & gestion de crise",
+          p: "Lorsqu'un événement critique survient — cyberattaque, catastrophe naturelle ou panne opérationnelle — la rapidité et la précision de la réponse définissent le résultat. Nous mettons en œuvre et optimisons Everbridge pour rendre cette réponse automatique, coordonnée et traçable.",
+          li: [
+            "Mise en œuvre d'Everbridge CEM (Gestion des événements critiques) — notification de masse, commandement visuel, alertes TI et connexion à la sécurité configurés selon votre structure organisationnelle.",
+            "Conception de programme de BCM (Continuité des affaires) — BIA, PCA et PRI alignés aux exigences réglementaires (ISO 22301, FFIEC, DORA) et intégrés à vos plateformes ITSM et GRC.",
+            "Playbooks de communication de crise et flux d'escalade — pour que les bonnes personnes reçoivent la bonne information au bon moment, sans coordination manuelle sous pression.",
+            "Exercices sur table et tests de simulation — validation de votre capacité de réponse avant qu'un événement survienne, avec les constats réintégrés dans vos programmes de continuité et de risque.",
+            "Intégration avec ServiceNow, SIEM et plateformes de surveillance — bouclant la boucle entre la détection TI, la réponse opérationnelle et la communication aux parties prenantes."
+          ],
+          imgLabel: "Photo gestion de crise / centre d'opérations"
         }
       ]
     },
@@ -409,13 +438,14 @@ const COPY = {
     services: {
       eyebrow: "Services",
       title: "Conseil de bout en bout là où la transformation réussit ou échoue.",
-      sub: "Cinq domaines. Un principal responsable sur chaque mandat.",
+      sub: "Six domaines. Un principal responsable sur chaque mandat.",
       items: [
         { n: "01", icon: "cloud", t: "Transformation cloud et centres de données", d: "Migrations AWS, stratégie cloud hybride et consolidation de centres de données. Nous concevons et livrons des architectures cloud qui réduisent les coûts, éliminent les points de défaillance uniques et évoluent avec votre entreprise — sans perturber les opérations.", tags: ["AWS", "Hybride", "Migration"] },
         { n: "02", icon: "shield", t: "Cybersécurité et conformité", d: "Mise en œuvre ISO 27001, SOC2, NIST et SOX — de l'analyse des écarts à la certification. Nous mettons en place des contrôles qui satisfont les régulateurs, protègent les opérations et donnent confiance au conseil sur votre posture de risque.", tags: ["ISO 27001", "SOC2", "NIST", "SOX"] },
         { n: "03", icon: "code", t: "DevSecOps et transformation agile", d: "Pipelines CI/CD sécurisés, modernisation du SDLC et activation des équipes. Nous intégrons la sécurité dans chaque sprint et aidons les organisations d'ingénierie à livrer plus vite, avec moins de vulnérabilités et de meilleures pistes d'audit.", tags: ["CI/CD", "SDLC", "Agile"] },
         { n: "04", icon: "diagram", t: "Architecture d'entreprise et direction de programme", d: "Intégration de systèmes, gouvernance ERP et livraison de programmes à grande échelle. Nous fournissons le leadership technique et organisationnel pour garder les programmes TI complexes dans les délais, le scope et alignés aux résultats d'affaires.", tags: ["AE", "ERP", "Programmes"] },
-        { n: "05", icon: "shield", t: "ServiceNow & GRC", d: "Conseil ServiceNow complet — de la santé de la plateforme et de la validation d'instance jusqu'à la mise en œuvre du GRC, IRM, TPRM et ITOM. Nous configurons la Now Platform pour automatiser les flux de risque et de conformité, unifier votre CMDB et donner à la direction une visibilité en temps réel sur le risque d'entreprise.", tags: ["GRC", "IRM", "TPRM", "ITOM", "ServiceNow"] }
+        { n: "05", icon: "shield", t: "ServiceNow & GRC", d: "Conseil ServiceNow complet — de la santé de la plateforme et de la validation d'instance jusqu'à la mise en œuvre du GRC, IRM, TPRM et ITOM. Nous configurons la Now Platform pour automatiser les flux de risque et de conformité, unifier votre CMDB et donner à la direction une visibilité en temps réel sur le risque d'entreprise.", tags: ["GRC", "IRM", "TPRM", "ITOM", "ServiceNow"] },
+        { n: "06", icon: "shield", t: "Everbridge & Gestion de crise", d: "Mise en œuvre et optimisation d'Everbridge pour la gestion des événements critiques à l'échelle de l'entreprise. Nous concevons des programmes de GEC qui connectent la notification de masse, la réponse aux incidents, les alertes TI et la planification de la continuité en un modèle opérationnel coordonné.", tags: ["Everbridge", "GEC", "BCM", "Crise", "Réponse aux incidents"] }
       ],
       readmore: "Discuter ce service"
     },
@@ -478,8 +508,8 @@ const COPY = {
       email: "contact@uably.com",
       cols: [
         { h: "Liens rapides", l: ["Accueil", "À propos", "Services", "Mandats", "Contact"] },
-        { h: "Nos services", l: ["Transformation cloud", "Cybersécurité et conformité", "DevSecOps", "Architecture d'entreprise", "ServiceNow & GRC", "Direction de programmes TI"] },
-        { h: "Expertise", l: ["AWS et cloud hybride", "ISO 27001 et SOC2", "NIST et SOX", "ServiceNow GRC et IRM", "TPRM et ITOM", "Agile et DevSecOps", "Conseil exécutif"] },
+        { h: "Nos services", l: ["Transformation cloud", "Cybersécurité et conformité", "DevSecOps", "Architecture d'entreprise", "ServiceNow & GRC", "Everbridge & Gestion de crise", "Direction de programmes TI"] },
+        { h: "Expertise", l: ["AWS et cloud hybride", "ISO 27001 et SOC2", "NIST et SOX", "ServiceNow GRC et IRM", "TPRM et ITOM", "Everbridge CEM et BCM", "Agile et DevSecOps", "Conseil exécutif"] },
         { h: "Industries", l: ["Services financiers", "Gouvernement", "TI d'entreprise", "SaaS et technologie", "Aviation et transport"] }
       ],
       rights: "Tous droits réservés"
