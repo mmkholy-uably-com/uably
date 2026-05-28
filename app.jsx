@@ -59,9 +59,9 @@ function Nav({ lang, setLang, t, onTweaksOpen }) {
               }}>{l.toUpperCase()}</button>
             ))}
           </div>
-          <button className="btn btn-blue" style={{ padding: "10px 18px", fontSize: 13 }} onClick={() => scrollTo("contact")}>
+          <a href="https://calendly.com/melkhouly/prospect" target="_blank" rel="noopener noreferrer" className="btn btn-blue" style={{ padding: "10px 18px", fontSize: 13 }}>
             {t.cta} <Arrow />
-          </button>
+          </a>
         </div>
       </div>
     </nav>
@@ -132,7 +132,7 @@ function Hero({ t }) {
 
           <Reveal delay={400}>
             <div style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
-              <button className="btn btn-blue">{t.hero.primary} <Arrow /></button>
+              <a href="https://calendly.com/melkhouly/prospect" target="_blank" rel="noopener noreferrer" className="btn btn-blue">{t.hero.primary} <Arrow /></a>
               <button className="btn btn-ghost">{t.hero.secondary} <Arrow /></button>
             </div>
           </Reveal>
