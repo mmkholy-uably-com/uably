@@ -1,0 +1,18 @@
+{
+  "name": "uably-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Uably — Senior IT consulting marketing site (Next.js static export)",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && node scripts/fix-og.mjs",
+    "start": "next start",
+    "lint": "next lint",
+    "serve": "npx serve out"
+  },
+  "dependencies": {
+    "next": "^14.2.35",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  }
+}
