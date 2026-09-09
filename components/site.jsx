@@ -2,8 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { BOOKING_URL } from "@/lib/seo";
+import { track } from "@/components/analytics";
 
-const CALENDLY_URL = "https://calendly.com/melkhouly/prospect";
+const CALENDLY_URL = BOOKING_URL;
 
 /* ─── Reveal on scroll ─────────────────────────────────────────────── */
 function Reveal({ children, delay = 0, as: As = "div", ...rest }) {
@@ -153,7 +155,7 @@ function Nav({ lang, t }) {
               }}>{o.l.toUpperCase()}</Link>
             ))}
           </div>
-          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-blue" style={{ padding: "10px 18px", fontSize: 13 }}>
+          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" onClick={() => track("book_call", { location: "nav" })} className="btn btn-blue" style={{ padding: "10px 18px", fontSize: 13 }}>
             {t.cta} <Arrow />
           </a>
         </div>
@@ -214,7 +216,7 @@ function Hero({ t }) {
 
           <Reveal delay={400}>
             <div style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-blue">{t.hero.primary} <Arrow /></a>
+              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" onClick={() => track("book_call", { location: "hero" })} className="btn btn-blue">{t.hero.primary} <Arrow /></a>
               <button className="btn btn-ghost" onClick={scrollToServices}>{t.hero.secondary} <Arrow /></button>
             </div>
           </Reveal>
@@ -535,7 +537,7 @@ function CTABanner1({ t }) {
               <h2 className="display" style={{ fontSize: "clamp(28px, 3.4vw, 44px)", margin: "16px 0 14px" }}>{t.cta1.title}</h2>
               <p style={{ color: "var(--ink-dim)", fontSize: 16, lineHeight: 1.6, margin: 0, maxWidth: 640 }}>{t.cta1.sub}</p>
             </div>
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-blue" style={{ position: "relative", whiteSpace: "nowrap" }}>{t.cta1.btn} <Arrow /></a>
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" onClick={() => track("book_call", { location: "cta_banner_1" })} className="btn btn-blue" style={{ position: "relative", whiteSpace: "nowrap" }}>{t.cta1.btn} <Arrow /></a>
           </div>
         </Reveal>
       </div>
@@ -655,7 +657,7 @@ function ServiceCard({ s, readmore }) {
           <span key={i} style={{ fontSize: 11, fontFamily: "JetBrains Mono, monospace", padding: "5px 10px", borderRadius: 999, border: "1px solid var(--line-strong)", color: "var(--ink-dim)" }}>{tag}</span>
         ))}
       </div>
-      <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "var(--blue-hi)", fontSize: 14, fontWeight: 500, cursor: "pointer" }}>{readmore} <Arrow /></a>
+      <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" onClick={() => track("book_call", { location: "service_card" })} style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "var(--blue-hi)", fontSize: 14, fontWeight: 500, cursor: "pointer" }}>{readmore} <Arrow /></a>
     </div>
   );
 }
@@ -700,7 +702,7 @@ function TierCard({ tier, t }) {
           </li>
         ))}
       </ul>
-      <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className={pop ? "btn btn-primary" : "btn btn-ghost"} style={{ justifyContent: "center", display: "inline-flex" }}>{t.engagement.btn} <Arrow /></a>
+      <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" onClick={() => track("book_call", { location: "engagement" })} className={pop ? "btn btn-primary" : "btn btn-ghost"} style={{ justifyContent: "center", display: "inline-flex" }}>{t.engagement.btn} <Arrow /></a>
     </div>
   );
 }
@@ -747,7 +749,7 @@ function CTABanner2({ t }) {
             <div style={{ position: "relative", maxWidth: 880, margin: "0 auto" }}>
               <h2 className="display" style={{ fontSize: "clamp(40px, 5.6vw, 84px)", margin: "0 0 28px", color: "#fff" }}>{t.cta2.title}</h2>
               <p style={{ fontSize: 18, color: "rgba(255,255,255,.82)", maxWidth: 720, lineHeight: 1.55, margin: "0 auto 40px" }}>{t.cta2.sub}</p>
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ fontSize: 15, padding: "16px 28px" }}>{t.cta2.btn} <Arrow /></a>
+              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" onClick={() => track("book_call", { location: "cta_banner_2" })} className="btn btn-primary" style={{ fontSize: 15, padding: "16px 28px" }}>{t.cta2.btn} <Arrow /></a>
             </div>
           </div>
         </Reveal>
@@ -771,7 +773,7 @@ function Input({ as = "input", ...rest }) {
 
 function ContactSection({ t }) {
   const [sent, setSent] = useState(false);
-  const onSubmit = (e) => { e.preventDefault(); setSent(true); setTimeout(() => setSent(false), 4000); };
+  const onSubmit = (e) => { e.preventDefault(); track("generate_lead", { location: "contact_form" }); setSent(true); setTimeout(() => setSent(false), 4000); };
   return (
     <section id="contact">
       <div className="wrap">
