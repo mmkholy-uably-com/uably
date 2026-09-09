@@ -1,5 +1,6 @@
 import "./globals.css";
-import { SITE_URL, SITE_NAME } from "@/lib/seo";
+import { SITE_URL, SITE_NAME, GSC_VERIFICATION } from "@/lib/seo";
+import { Analytics } from "@/components/analytics";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -22,6 +23,7 @@ export const metadata = {
     icon: "/favicon.svg",
     apple: "/favicon.svg",
   },
+  ...(GSC_VERIFICATION ? { verification: { google: GSC_VERIFICATION } } : {}),
 };
 
 export const viewport = {
@@ -41,7 +43,10 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body data-bg="gradient">{children}</body>
+      <body data-bg="gradient">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
