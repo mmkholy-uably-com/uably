@@ -91,7 +91,7 @@ function PhotoTile({ src, alt, radius = 18, style = {} }) {
   );
 }
 
-function Logo({ size = 32 }) {
+export function Logo({ size = 32 }) {
   const h = Math.round(size * 1.15);
   const w = Math.round(h * (213 / 254));
   return (
@@ -888,7 +888,12 @@ function Footer({ t }) {
           ))}
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", gap: 24, paddingTop: 24, borderTop: "1px solid var(--line)", fontSize: 13, color: "var(--ink-mute)", flexWrap: "wrap" }}>
-          <div>© {new Date().getFullYear()} Uably. {t.footer.rights}.</div>
+          <div style={{ display: "flex", gap: 18, alignItems: "center", flexWrap: "wrap" }}>
+            <span>© {new Date().getFullYear()} Uably. {t.footer.rights}.</span>
+            {t.footer.legalHref ? (
+              <a href={t.footer.legalHref} style={{ color: "var(--ink-dim)", textDecoration: "none" }}>{t.footer.legalLabel}</a>
+            ) : null}
+          </div>
           <div style={{ fontFamily: "JetBrains Mono, monospace", letterSpacing: "0.05em" }}>uably.com</div>
         </div>
       </div>
