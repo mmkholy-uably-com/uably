@@ -1,5 +1,5 @@
 import "./globals.css";
-import { SITE_URL, SITE_NAME, GSC_VERIFICATION } from "@/lib/seo";
+import { SITE_URL, SITE_NAME, GSC_VERIFICATION, GTM_ID } from "@/lib/seo";
 import { Analytics } from "@/components/analytics";
 
 export const metadata = {
@@ -36,6 +36,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        {GTM_ID ? (
+          <script
+            id="gtm-base"
+            dangerouslySetInnerHTML={{
+              __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`,
+            }}
+          />
+        ) : null}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -44,6 +52,16 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body data-bg="gradient">
+        {GTM_ID ? (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
+        ) : null}
         {children}
         <Analytics />
       </body>
