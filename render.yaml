@@ -1,0 +1,31 @@
+# Render Blueprint for the Uably static site.
+# The site is a Next.js static export: Render runs the build and serves the
+# generated `out/` directory. Cloudflare sits in front as the CDN/proxy.
+#
+# NOTE: env var VALUES are set in the Render dashboard (marked sync: false so
+# they are not stored in git). After first deploy, set each one and redeploy.
+services:
+  - type: web
+    name: uably
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./out
+    pullRequestPreviewsEnabled: true
+    envVars:
+      # Node LTS for the build (Next.js 14 requires Node >= 18).
+      - key: NODE_VERSION
+        value: "20.18.0"
+      # Google Analytics 4 measurement ID (G-XXXXXXXXXX). Empty = GA disabled.
+      - key: NEXT_PUBLIC_GA_ID
+        sync: false
+      # Google Search Console HTML-tag verification token.
+      - key: NEXT_PUBLIC_GSC_VERIFICATION
+        sync: false
+      # Booking link used by every "book a call" CTA.
+      - key: NEXT_PUBLIC_BOOKING_URL
+        sync: false
+    headers:
+      # Long-cache the fingerprinted build assets.
+      - path: /_next/static/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
