@@ -108,6 +108,7 @@ function Logo({ size = 32 }) {
 function Nav({ lang, t }) {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("home");
+  const [menuOpen, setMenuOpen] = useState(false);
   const ids = ["home", "about", "services", "approach", "engagements", "faq", "contact"];
 
   useEffect(() => {
@@ -131,31 +132,57 @@ function Nav({ lang, t }) {
     if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
   };
 
+  const go = (id) => { scrollTo(id); setMenuOpen(false); };
+
+  const langToggle = (
+    <div style={{ display: "flex", padding: 3, borderRadius: 999, border: "1px solid var(--line-strong)", background: "rgba(255,255,255,.02)" }}>
+      {[{ l: "en", href: "/" }, { l: "fr", href: "/fr/" }].map((o) => (
+        <Link key={o.l} href={o.href} hrefLang={o.l} style={{
+          padding: "5px 12px", borderRadius: 999, border: 0, cursor: "pointer",
+          fontSize: 12, fontWeight: 500, letterSpacing: "0.05em",
+          fontFamily: "JetBrains Mono, monospace",
+          background: lang === o.l ? "var(--ink)" : "transparent",
+          color: lang === o.l ? "#0a0e1a" : "var(--ink-dim)",
+          transition: "all .2s", textDecoration: "none"
+        }}>{o.l.toUpperCase()}</Link>
+      ))}
+    </div>
+  );
+
   return (
     <nav className={`nav ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-inner">
-        <a onClick={() => scrollTo("home")} style={{ cursor: "pointer" }}><Logo size={32} /></a>
+        <a onClick={() => go("home")} style={{ cursor: "pointer" }}><Logo size={32} /></a>
 
-        <div style={{ display: "flex", gap: 28, marginLeft: 28 }}>
+        <div className="nav-links" style={{ display: "flex", gap: 28, marginLeft: 28 }}>
           {t.nav.map((label, i) => (
-            <a key={i} className={`nav-link ${active === ids[i] ? "active" : ""}`} onClick={() => scrollTo(ids[i])}>{label}</a>
+            <a key={i} className={`nav-link ${active === ids[i] ? "active" : ""}`} onClick={() => go(ids[i])}>{label}</a>
           ))}
         </div>
 
-        <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 16 }}>
-          <div style={{ display: "flex", padding: 3, borderRadius: 999, border: "1px solid var(--line-strong)", background: "rgba(255,255,255,.02)" }}>
-            {[{ l: "en", href: "/" }, { l: "fr", href: "/fr/" }].map((o) => (
-              <Link key={o.l} href={o.href} hrefLang={o.l} style={{
-                padding: "5px 12px", borderRadius: 999, border: 0, cursor: "pointer",
-                fontSize: 12, fontWeight: 500, letterSpacing: "0.05em",
-                fontFamily: "JetBrains Mono, monospace",
-                background: lang === o.l ? "var(--ink)" : "transparent",
-                color: lang === o.l ? "#0a0e1a" : "var(--ink-dim)",
-                transition: "all .2s", textDecoration: "none"
-              }}>{o.l.toUpperCase()}</Link>
-            ))}
-          </div>
-          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" onClick={() => track("book_call", { location: "nav" })} className="btn btn-blue" style={{ padding: "10px 18px", fontSize: 13 }}>
+        <div className="nav-actions" style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 16 }}>
+          {langToggle}
+          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" onClick={() => track("book_call", { location: "nav" })} className="btn btn-blue nav-cta" style={{ padding: "10px 18px", fontSize: 13 }}>
+            {t.cta} <Arrow />
+          </a>
+          <button
+            className={`nav-burger ${menuOpen ? "open" : ""}`}
+            aria-label="Toggle menu" aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((v) => !v)}
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+
+      <div className={`nav-mobile ${menuOpen ? "open" : ""}`}>
+        <div className="nav-mobile-inner">
+          {t.nav.map((label, i) => (
+            <a key={i} className="nav-mobile-link" onClick={() => go(ids[i])}>{label}</a>
+          ))}
+          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer"
+            onClick={() => { track("book_call", { location: "nav_mobile" }); setMenuOpen(false); }}
+            className="btn btn-blue" style={{ justifyContent: "center", marginTop: 6 }}>
             {t.cta} <Arrow />
           </a>
         </div>
@@ -181,13 +208,13 @@ function Hero({ t }) {
     if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
   };
   return (
-    <section id="home" style={{ paddingTop: 160, paddingBottom: 80, position: "relative", overflow: "hidden", minHeight: "92vh" }}>
+    <section id="home" className="hero-section" style={{ paddingTop: 160, paddingBottom: 80, position: "relative", overflow: "hidden", minHeight: "92vh" }}>
       <div className="aurora-a" style={{ top: -100, right: -60 }}></div>
       <div className="aurora-b" style={{ bottom: -120, left: -40 }}></div>
       <div style={{ position: "absolute", inset: 0, opacity: 0.3, pointerEvents: "none",
         background: "linear-gradient(110deg, transparent 38%, rgba(46,107,255,.04) 38%, rgba(46,107,255,.04) 42%, transparent 42%)" }}></div>
 
-      <div className="wrap" style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: 64, alignItems: "center", position: "relative" }}>
+      <div className="wrap hero-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: 64, alignItems: "center", position: "relative" }}>
         <div>
           <Reveal>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "6px 14px", borderRadius: 999,
@@ -200,7 +227,7 @@ function Hero({ t }) {
             </div>
           </Reveal>
 
-          <h1 className="display reveal" style={{ fontSize: "clamp(56px, 7.2vw, 112px)", margin: "0 0 36px", letterSpacing: "-0.045em" }} ref={useEntryReveal()}>
+          <h1 className="display reveal hero-title" style={{ fontSize: "clamp(56px, 7.2vw, 112px)", margin: "0 0 36px", letterSpacing: "-0.045em" }} ref={useEntryReveal()}>
             {t.hero.title.map((p, i) => (
               <span key={i} style={{
                 display: "block",
@@ -232,7 +259,7 @@ function Hero({ t }) {
 
 function HeroVisual({ t }) {
   return (
-    <div style={{ position: "relative", aspectRatio: "5/6", maxHeight: 640 }}>
+    <div className="hero-visual" style={{ position: "relative", aspectRatio: "5/6", maxHeight: 640 }}>
       <div style={{ position: "absolute", inset: 0, borderRadius: 22, overflow: "hidden", border: "1px solid var(--line-strong)", boxShadow: "0 40px 80px -30px rgba(0,0,0,.5)" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=80"
@@ -241,7 +268,7 @@ function HeroVisual({ t }) {
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(7,10,20,.05), rgba(7,10,20,.35))" }}></div>
       </div>
 
-      <div style={{ position: "absolute", left: -28, bottom: 64, background: "rgba(13, 18, 36, 0.86)",
+      <div className="hero-float" style={{ position: "absolute", left: -28, bottom: 64, background: "rgba(13, 18, 36, 0.86)",
         backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", border: "1px solid var(--line-strong)",
         borderRadius: 18, padding: "20px 22px", boxShadow: "0 20px 60px -20px rgba(0,0,0,.6)", minWidth: 240 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
@@ -252,7 +279,7 @@ function HeroVisual({ t }) {
         <div style={{ fontSize: 13, color: "var(--ink-dim)", marginTop: 6 }}>Programs delivered audit-clean</div>
       </div>
 
-      <div style={{ position: "absolute", right: -16, top: 40, background: "rgba(13, 18, 36, 0.86)",
+      <div className="hero-float" style={{ position: "absolute", right: -16, top: 40, background: "rgba(13, 18, 36, 0.86)",
         backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", border: "1px solid var(--line-strong)",
         borderRadius: 16, padding: "14px 18px", boxShadow: "0 20px 60px -20px rgba(0,0,0,.6)" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -266,7 +293,7 @@ function HeroVisual({ t }) {
         </div>
       </div>
 
-      <div style={{ position: "absolute", right: -8, bottom: -16, background: "var(--blue)", color: "#fff", borderRadius: 16, padding: "16px 20px", boxShadow: "0 20px 60px -20px rgba(46,107,255,.6)" }}>
+      <div className="hero-float" style={{ position: "absolute", right: -8, bottom: -16, background: "var(--blue)", color: "#fff", borderRadius: 16, padding: "16px 20px", boxShadow: "0 20px 60px -20px rgba(46,107,255,.6)" }}>
         <div style={{ fontSize: 11, fontFamily: "JetBrains Mono, monospace", letterSpacing: "0.12em", textTransform: "uppercase", opacity: .85 }}>Principal-led</div>
         <div style={{ fontSize: 28, fontWeight: 500, letterSpacing: "-0.03em", marginTop: 4 }}>Every engagement</div>
       </div>
@@ -304,7 +331,7 @@ function StatsStrip({ t }) {
 function AboutSection({ t }) {
   return (
     <section id="about">
-      <div className="wrap" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
+      <div className="wrap two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
         <Reveal>
           <Eyebrow>{t.about.eyebrow}</Eyebrow>
           <h2 className="display" style={{ fontSize: "clamp(40px, 5vw, 72px)", margin: "20px 0 24px" }}>
@@ -313,7 +340,7 @@ function AboutSection({ t }) {
             ))}
           </h2>
           <p style={{ fontSize: 18, color: "var(--ink-dim)", lineHeight: 1.6, maxWidth: 580, marginBottom: 36 }}>{t.about.body}</p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px 32px", marginBottom: 40 }}>
+          <div className="bullets-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px 32px", marginBottom: 40 }}>
             {t.about.bullets.map((b, i) => (
               <div key={i} style={{ display: "flex", gap: 12, alignItems: "center" }}>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0 }}>
@@ -354,7 +381,7 @@ function AboutSection({ t }) {
 function AboutCollage({ t }) {
   return (
     <div style={{ position: "relative" }}>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "260px 200px", gap: 14 }}>
+      <div className="about-collage" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "260px 200px", gap: 14 }}>
         <PhotoTile src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1400&q=80" alt="Consulting meeting" style={{ gridColumn: "1 / span 2" }} radius={18} />
         <PhotoTile src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=900&q=80" alt="Senior consultant" radius={16} />
         <div style={{ borderRadius: 16, overflow: "hidden", position: "relative", background: "linear-gradient(135deg, var(--blue), var(--plum))", padding: 24, color: "#fff", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
@@ -404,7 +431,7 @@ function ExpertiseSection({ t }) {
           </div>
         </Reveal>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
+        <div className="two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
           <div key={active} style={{ animation: "fadeUp .5s ease both" }}>
             <h3 style={{ fontSize: "clamp(28px, 3.2vw, 42px)", fontWeight: 500, letterSpacing: "-0.025em", lineHeight: 1.15, margin: "0 0 20px" }}>{tab.h}</h3>
             <p style={{ color: "var(--ink-dim)", fontSize: 17, lineHeight: 1.6, marginBottom: 28, fontStyle: "italic" }}>{tab.p}</p>
@@ -480,13 +507,13 @@ function DeliverySection({ t }) {
           </div>
         </Reveal>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 48, alignItems: "center" }}>
-          <div style={{ display: "flex", flexDirection: "column", gap: 40 }}>
+        <div className="delivery-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 48, alignItems: "center" }}>
+          <div className="delivery-col" style={{ display: "flex", flexDirection: "column", gap: 40 }}>
             {t.delivery.left.map((it, i) => (<Reveal key={i} delay={i * 80}><DeliveryItem it={it} align="right" /></Reveal>))}
           </div>
 
           <Reveal delay={200}>
-            <div style={{ position: "relative" }}>
+            <div className="delivery-photo" style={{ position: "relative" }}>
               <div className="aurora-a" style={{ width: 320, height: 320, top: -40, left: -20, opacity: .6 }}></div>
               <PhotoTile src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="Delivery dashboard" radius={20} style={{ aspectRatio: "3/4", position: "relative" }} />
               <div style={{ position: "absolute", bottom: -16, left: "50%", transform: "translateX(-50%)", background: "rgba(13,18,36,.92)", backdropFilter: "blur(20px)", border: "1px solid var(--line-strong)", borderRadius: 999, padding: "10px 18px", display: "flex", alignItems: "center", gap: 10, whiteSpace: "nowrap", boxShadow: "0 12px 32px -8px rgba(0,0,0,.5)" }}>
@@ -496,7 +523,7 @@ function DeliverySection({ t }) {
             </div>
           </Reveal>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 40 }}>
+          <div className="delivery-col" style={{ display: "flex", flexDirection: "column", gap: 40 }}>
             {t.delivery.right.map((it, i) => (<Reveal key={i} delay={i * 80 + 100}><DeliveryItem it={it} align="left" /></Reveal>))}
           </div>
         </div>
@@ -514,7 +541,7 @@ function DeliveryItem({ it, align }) {
   };
   const icon = iconMap[it.h] || "check";
   return (
-    <div style={{ display: "flex", gap: 18, alignItems: "flex-start", flexDirection: align === "right" ? "row-reverse" : "row", textAlign: align === "right" ? "right" : "left" }}>
+    <div className={`delivery-item align-${align}`} style={{ display: "flex", gap: 18, alignItems: "flex-start", flexDirection: align === "right" ? "row-reverse" : "row", textAlign: align === "right" ? "right" : "left" }}>
       <div style={{ width: 56, height: 56, borderRadius: 14, flexShrink: 0, border: "1px solid var(--line-strong)", background: "linear-gradient(180deg, rgba(46,107,255,.12), transparent)", color: "var(--blue-hi)", display: "grid", placeItems: "center" }}><Icon name={icon} size={22} /></div>
       <div>
         <h3 style={{ fontSize: 18, fontWeight: 500, letterSpacing: "-0.015em", margin: "0 0 8px" }}>{it.h}</h3>
@@ -530,7 +557,7 @@ function CTABanner1({ t }) {
     <section style={{ padding: "40px 0 80px" }}>
       <div className="wrap">
         <Reveal>
-          <div style={{ position: "relative", overflow: "hidden", borderRadius: 22, border: "1px solid var(--line-strong)", background: "linear-gradient(135deg, rgba(46,107,255,.08), rgba(124,91,255,.05))", padding: "56px 56px", display: "grid", gridTemplateColumns: "1.4fr auto", gap: 40, alignItems: "center" }}>
+          <div className="cta1-grid" style={{ position: "relative", overflow: "hidden", borderRadius: 22, border: "1px solid var(--line-strong)", background: "linear-gradient(135deg, rgba(46,107,255,.08), rgba(124,91,255,.05))", padding: "56px 56px", display: "grid", gridTemplateColumns: "1.4fr auto", gap: 40, alignItems: "center" }}>
             <div style={{ position: "absolute", right: -60, top: -60, width: 320, height: 320, borderRadius: "50%", background: "radial-gradient(circle, rgba(46,107,255,.25), transparent 60%)", filter: "blur(60px)" }}></div>
             <div style={{ position: "relative" }}>
               <Eyebrow>{t.cta1.eyebrow}</Eyebrow>
@@ -580,7 +607,7 @@ function TestimonialsSection({ t }) {
             <p style={{ color: "var(--ink-dim)", fontSize: 17, maxWidth: 560, margin: "0 auto" }}>{t.testimonials.sub}</p>
           </div>
         </Reveal>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+        <div className="two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
           {t.testimonials.items.map((tt, i) => (<Reveal key={i} delay={i * 80}><TestimonialCard tt={tt} idx={i} /></Reveal>))}
         </div>
       </div>
@@ -629,7 +656,7 @@ function ServicesSection({ t }) {
           </div>
         </Reveal>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+        <div className="two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
           {t.services.items.map((s, i) => (<Reveal key={i} delay={i * 80}><ServiceCard s={s} readmore={t.services.readmore} /></Reveal>))}
         </div>
       </div>
@@ -675,7 +702,7 @@ function EngagementSection({ t }) {
           </div>
         </Reveal>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+        <div className="tiers-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
           {t.engagement.tiers.map((tier, i) => (<Reveal key={i} delay={i * 80}><TierCard tier={tier} t={t} /></Reveal>))}
         </div>
       </div>
@@ -711,7 +738,7 @@ function TierCard({ tier, t }) {
 function FAQSection({ t }) {
   return (
     <section id="faq">
-      <div className="wrap" style={{ display: "grid", gridTemplateColumns: "0.6fr 1fr", gap: 80, alignItems: "start" }}>
+      <div className="wrap two-col" style={{ display: "grid", gridTemplateColumns: "0.6fr 1fr", gap: 80, alignItems: "start" }}>
         <Reveal>
           <Eyebrow>{t.faq.eyebrow}</Eyebrow>
           <h2 className="display" style={{ fontSize: "clamp(34px, 4vw, 54px)", margin: "20px 0 24px" }}>{t.faq.title}</h2>
@@ -743,7 +770,7 @@ function CTABanner2({ t }) {
     <section style={{ padding: "80px 0" }}>
       <div className="wrap">
         <Reveal>
-          <div style={{ position: "relative", overflow: "hidden", borderRadius: 28, background: "linear-gradient(135deg, #050918 0%, #0a1432 30%, #1a3a8c 70%, #2E6BFF 100%)", padding: "96px 64px", border: "1px solid rgba(120,160,255,.25)", textAlign: "center" }}>
+          <div className="cta2-inner" style={{ position: "relative", overflow: "hidden", borderRadius: 28, background: "linear-gradient(135deg, #050918 0%, #0a1432 30%, #1a3a8c 70%, #2E6BFF 100%)", padding: "96px 64px", border: "1px solid rgba(120,160,255,.25)", textAlign: "center" }}>
             <div style={{ position: "absolute", right: -120, top: -120, width: 480, height: 480, borderRadius: "50%", background: "radial-gradient(circle, rgba(255,61,127,.55), transparent 60%)", filter: "blur(70px)" }}></div>
             <div style={{ position: "absolute", left: -100, bottom: -100, width: 380, height: 380, borderRadius: "50%", background: "radial-gradient(circle, rgba(200,255,58,.3), transparent 60%)", filter: "blur(70px)" }}></div>
             <div style={{ position: "relative", maxWidth: 880, margin: "0 auto" }}>
@@ -785,7 +812,7 @@ function ContactSection({ t }) {
           </div>
         </Reveal>
 
-        <div style={{ display: "grid", gridTemplateColumns: "0.85fr 1.15fr", gap: 32, alignItems: "stretch" }}>
+        <div className="two-col" style={{ display: "grid", gridTemplateColumns: "0.85fr 1.15fr", gap: 32, alignItems: "stretch" }}>
           <Reveal>
             <div style={{ padding: 40, borderRadius: 22, height: "100%", border: "1px solid var(--line)", background: "linear-gradient(180deg, rgba(46,107,255,.06), rgba(124,91,255,.03))" }}>
               <h3 style={{ fontSize: 24, fontWeight: 500, letterSpacing: "-0.02em", margin: "0 0 12px" }}>{t.contact.infoTitle}</h3>
@@ -809,7 +836,7 @@ function ContactSection({ t }) {
             <form onSubmit={onSubmit} style={{ padding: 40, borderRadius: 22, height: "100%", border: "1px solid var(--line)", background: "rgba(255,255,255,.015)" }}>
               <h3 style={{ fontSize: 24, fontWeight: 500, letterSpacing: "-0.02em", margin: "0 0 12px" }}>{t.contact.formTitle}</h3>
               <p style={{ color: "var(--ink-dim)", fontSize: 14, lineHeight: 1.6, margin: "0 0 28px" }}>{t.contact.formSub}</p>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 14 }}>
+              <div className="form-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 14 }}>
                 <Input placeholder={t.contact.ph.name} aria-label={t.contact.ph.name} />
                 <Input placeholder={t.contact.ph.email} type="email" aria-label={t.contact.ph.email} />
               </div>
@@ -831,7 +858,7 @@ function Footer({ t }) {
   return (
     <footer style={{ borderTop: "1px solid var(--line)", padding: "64px 0 32px" }}>
       <div className="wrap">
-        <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr 1fr 1fr 1fr", gap: 40, marginBottom: 56 }}>
+        <div className="footer-grid" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr 1fr 1fr 1fr", gap: 40, marginBottom: 56 }}>
           <div>
             <Logo size={32} />
             <div style={{ marginTop: 18, color: "var(--ink-dim)", fontSize: 14, lineHeight: 1.7 }}>
