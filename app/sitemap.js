@@ -29,5 +29,29 @@ export default function sitemap() {
         },
       },
     },
+    {
+      url: `${SITE_URL}/privacy/`,
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.3,
+      alternates: {
+        languages: {
+          "en-CA": `${SITE_URL}/privacy/`,
+          "fr-CA": `${SITE_URL}/fr/confidentialite/`,
+        },
+      },
+    },
+    {
+      url: `${SITE_URL}/fr/confidentialite/`,
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.3,
+      alternates: {
+        languages: {
+          "en-CA": `${SITE_URL}/privacy/`,
+          "fr-CA": `${SITE_URL}/fr/confidentialite/`,
+        },
+      },
+    },
   ];
 }

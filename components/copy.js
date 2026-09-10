@@ -263,7 +263,9 @@ export const COPY = {
         { h: "Expertise", l: ["AWS & Hybrid Cloud", "ISO 27001 & SOC2", "NIST & SOX", "ServiceNow GRC & IRM", "TPRM & ITOM", "Everbridge CEM & BCM", "Agile & DevSecOps", "Executive Advisory"] },
         { h: "Industries", l: ["Financial Services", "Government", "Enterprise IT", "SaaS & Technology", "Aviation & Transport"] }
       ],
-      rights: "All rights reserved"
+      rights: "All rights reserved",
+      legalLabel: "Privacy Policy",
+      legalHref: "/privacy/"
     }
   },
 
@@ -513,7 +515,9 @@ export const COPY = {
         { h: "Expertise", l: ["AWS et cloud hybride", "ISO 27001 et SOC2", "NIST et SOX", "ServiceNow GRC et IRM", "TPRM et ITOM", "Everbridge CEM et BCM", "Agile et DevSecOps", "Conseil exécutif"] },
         { h: "Industries", l: ["Services financiers", "Gouvernement", "TI d'entreprise", "SaaS et technologie", "Aviation et transport"] }
       ],
-      rights: "Tous droits réservés"
+      rights: "Tous droits réservés",
+      legalLabel: "Politique de confidentialité",
+      legalHref: "/fr/confidentialite/"
     }
   }
 };
