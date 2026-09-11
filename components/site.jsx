@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { BOOKING_URL } from "@/lib/seo";
+import { BOOKING_URL, FORM_ENDPOINT, FORM_ACCESS_KEY, CONTACT_EMAIL } from "@/lib/seo";
 import { track } from "@/components/analytics";
 
 const CALENDLY_URL = BOOKING_URL;
@@ -799,8 +799,57 @@ function Input({ as = "input", ...rest }) {
 }
 
 function ContactSection({ t }) {
-  const [sent, setSent] = useState(false);
-  const onSubmit = (e) => { e.preventDefault(); track("generate_lead", { location: "contact_form" }); setSent(true); setTimeout(() => setSent(false), 4000); };
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    // Honeypot: bots fill hidden fields — silently accept and drop.
+    if (data.company_website) { setStatus("sent"); form.reset(); return; }
+
+    const payload = {
+      name: data.name || "",
+      email: data.email || "",
+      subject: data.subject || "New enquiry from uably.com",
+      message: data.message || "",
+      _source: "uably.com contact form",
+    };
+    if (FORM_ACCESS_KEY) payload.access_key = FORM_ACCESS_KEY;
+
+    // No endpoint configured → never lose the lead: open the visitor's email client.
+    if (!FORM_ENDPOINT) {
+      track("generate_lead", { location: "contact_form", method: "mailto" });
+      const body = `Name: ${payload.name}\nEmail: ${payload.email}\n\n${payload.message}`;
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(payload.subject)}&body=${encodeURIComponent(body)}`;
+      setStatus("sent");
+      form.reset();
+      setTimeout(() => setStatus("idle"), 6000);
+      return;
+    }
+
+    setStatus("sending");
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error(`Bad status ${res.status}`);
+      track("generate_lead", { location: "contact_form", method: "form" });
+      setStatus("sent");
+      form.reset();
+      setTimeout(() => setStatus("idle"), 8000);
+    } catch (err) {
+      setStatus("error");
+    }
+  };
+
+  const btnLabel = status === "sending" ? t.contact.sending
+    : status === "sent" ? t.contact.sentBtn
+    : t.contact.btn;
+
   return (
     <section id="contact">
       <div className="wrap">
@@ -837,14 +886,22 @@ function ContactSection({ t }) {
               <h3 style={{ fontSize: 24, fontWeight: 500, letterSpacing: "-0.02em", margin: "0 0 12px" }}>{t.contact.formTitle}</h3>
               <p style={{ color: "var(--ink-dim)", fontSize: 14, lineHeight: 1.6, margin: "0 0 28px" }}>{t.contact.formSub}</p>
               <div className="form-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 14 }}>
-                <Input placeholder={t.contact.ph.name} aria-label={t.contact.ph.name} />
-                <Input placeholder={t.contact.ph.email} type="email" aria-label={t.contact.ph.email} />
+                <Input name="name" placeholder={t.contact.ph.name} aria-label={t.contact.ph.name} required />
+                <Input name="email" placeholder={t.contact.ph.email} type="email" aria-label={t.contact.ph.email} required />
               </div>
-              <div style={{ marginBottom: 14 }}><Input placeholder={t.contact.ph.subject} aria-label={t.contact.ph.subject} /></div>
-              <div style={{ marginBottom: 22 }}><Input placeholder={t.contact.ph.message} aria-label={t.contact.ph.message} as="textarea" rows={6} /></div>
-              <button type="submit" className="btn btn-blue" style={{ justifyContent: "center", width: "100%" }}>
-                {sent ? "✓ Sent" : t.contact.btn} {sent ? null : <Arrow />}
+              <div style={{ marginBottom: 14 }}><Input name="subject" placeholder={t.contact.ph.subject} aria-label={t.contact.ph.subject} /></div>
+              <div style={{ marginBottom: 22 }}><Input name="message" placeholder={t.contact.ph.message} aria-label={t.contact.ph.message} as="textarea" rows={6} required /></div>
+              {/* Honeypot — hidden from users, catches bots */}
+              <input type="text" name="company_website" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }} />
+              <button type="submit" disabled={status === "sending"} className="btn btn-blue" style={{ justifyContent: "center", width: "100%", opacity: status === "sending" ? 0.7 : 1, cursor: status === "sending" ? "default" : "pointer" }}>
+                {btnLabel} {status === "idle" ? <Arrow /> : null}
               </button>
+              {status === "sent" ? (
+                <p role="status" style={{ marginTop: 16, fontSize: 14, color: "var(--lime)", lineHeight: 1.5 }}>{t.contact.sentMsg}</p>
+              ) : null}
+              {status === "error" ? (
+                <p role="alert" style={{ marginTop: 16, fontSize: 14, color: "var(--pop)", lineHeight: 1.5 }}>{t.contact.errorMsg}</p>
+              ) : null}
             </form>
           </Reveal>
         </div>
