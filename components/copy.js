@@ -250,7 +250,11 @@ export const COPY = {
       formTitle: "Send us a message",
       formSub: "Describe your challenge, the scope of what you're working on, and the best way to reach you. We'll respond within one business day.",
       ph: { name: "Your name", email: "Your email", subject: "Subject", message: "Tell us about your program, timeline, and any compliance regime in play…" },
-      btn: "Send message"
+      btn: "Send message",
+      sending: "Sending…",
+      sentBtn: "✓ Message sent",
+      sentMsg: "Thanks — your message is on its way. We'll reply within one business day.",
+      errorMsg: "Something went wrong. Please email us directly at contact@uably.com."
     },
 
     footer: {
@@ -502,7 +506,11 @@ export const COPY = {
       formTitle: "Envoyez-nous un message",
       formSub: "Décrivez votre défi, la portée de ce sur quoi vous travaillez et la meilleure façon de vous joindre. Nous répondrons sous un jour ouvrable.",
       ph: { name: "Votre nom", email: "Votre courriel", subject: "Sujet", message: "Parlez-nous de votre programme, échéancier et régime de conformité…" },
-      btn: "Envoyer le message"
+      btn: "Envoyer le message",
+      sending: "Envoi…",
+      sentBtn: "✓ Message envoyé",
+      sentMsg: "Merci — votre message est en route. Nous répondrons sous un jour ouvrable.",
+      errorMsg: "Une erreur s'est produite. Écrivez-nous directement à contact@uably.com."
     },
 
     footer: {
